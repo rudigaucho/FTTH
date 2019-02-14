@@ -1,0 +1,217 @@
+﻿
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script type="text/javascript">
+function saidasuccessfully()
+{
+  setTimeout("window.location='index.html'",3000);
+  
+  
+}
+</script>
+
+
+
+<link rel="icon" href="img/logo_oi.png">
+  
+
+  <title>PREVENTIVA DE FIBRA</title>
+  <link rel="icon" href="img/key.png">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </script>
+  <style>
+  
+ #voltar
+ {
+
+float:right;
+
+ }
+ 
+ body
+ {
+   
+     background:white;
+
+   
+ }
+
+ 
+  #teste{background:white;padding:1%; border: solid 1px black;margin-top: 2%; }
+  
+  
+   
+
+    #edit
+    {
+       background: #F47315;
+       
+
+
+    }
+
+    #edit:hover
+    {
+
+     background: #F4BE0D;
+
+
+    }
+
+  </style>
+</head>
+<body>
+
+
+
+
+<div class="container">
+  <div class="row content">
+  <a style="float:right;" href="pesq_ba.php"><button type="button" id="logout" class="btn btn-link">PESQUISAR POR B.A</button></a>
+<H4 style="margin-left:25%;" >PREVENTIVA DE FIBRA</H4>
+    <div class="col-sm-10 "  >
+    
+    <div id="teste">
+  <form class="form-inline" role="form" name="seachform" method="post" action="enviar.php " enctype="multipart/form-data">
+
+    <div class="form-group">
+
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label for="email">BA:</label>
+      <input type="text" class="form-control" id="ba" name="ba" >
+    </div>
+     <div class="form-group">
+
+      &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label for="email">ID:</label>
+      <input type="text" class="form-control" id="id" name="id" >
+    </div>
+    <div class="form-group">
+      &nbsp&nbsp &nbsp &nbsp &nbsp<label for="pwd">DATA:</label>
+      <input type="text" class="form-control" id="data" name="data" >
+    </div><br><br>
+   
+    <div class="form-group">
+       &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp<label for="pwd">ENTRE LOCALIDADES:</label>
+      <input type="text" class="form-control" id="localidade" name="localidade">
+    </div>
+    <div class="form-group">
+    &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label for="pwd">VISTORIAS CABOS (mt):</label>
+      <input type="text" class="form-control" id="vist_cb" name="vist_cb" >
+    </div><br><br>
+   <div class="form-group">
+      &nbsp<label for="pwd">POSTES SUBSTITUÍDOS:</label>
+      <input type="text" class="form-control" id="post_subs" name="post_subs">
+    </div>
+    <div class="form-group">
+     &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp<label for="pwd">POSTES APRUMADOS</label>
+      <input type="text" class="form-control" id="post_aprum" name="post_aprum">
+    </div><br><br>
+    <div class="form-group">
+      <label for="pwd">READEQUAÇÃO DE REDE (mt):</label>
+      <input type="text" class="form-control" id="read_rede" name="read_rede" >
+    </div>
+    <div class="form-group">
+      &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp <label for="pwd">REDISPOSIÇÃO DE CABOS (mt)</label>
+      <input type="text" class="form-control" id="redis_cabo" name="redis_cabo" >
+    </div><br><br>
+    <div class="form-group">
+     <label for="pwd">LANÇAMENTO DE CABOS (mt):</label>
+      <input type="text" class="form-control" id="lanc_cb" name="lanc_cb" >
+    </div>
+    <div class="form-group">
+      &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <label for="pwd">PODA ROÇADAS:</label>
+      <input type="text" class="form-control" id="poda" name="poda" >
+    </div><br><br>
+    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<div class="form-group">
+      <label for="pwd">POSTES IMPLANTADOS:</label>
+      <input type="text" class="form-control" id="post_impl"  name="post_impl" >
+    </div> <div class="form-group">
+      &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp <label for="pwd">CABO:</label>
+      <input type="text" class="form-control" id="cabo" name="cabo" >
+    </div><br><br>
+
+   <br>
+    <div class="form-group">
+      <label for="pwd">VISTÓRIAS ESTÁTICAS HORAS:</label>
+      <input type="text" class="form-control" id="vist_hr" name="vist_hr">
+    </div>
+     <div class="form-group">
+      &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp<label for="pwd">LOTE CABO:</label>
+      <input type="text" class="form-control" id="lote_cb" name="lote_cb" >
+    </div><br><br>
+     <div class="form-group">
+      <label for="pwd">CÓD SAP CABO:</label>
+      <input type="text" class="form-control" id="cod_sap" name="cod_sap" >
+    </div>
+     <div class="form-group">
+      <label for="pwd">ENDEREÇO:</label>
+      <input type="text" class="form-control" id="endereco" name="endereco" >
+    </div>
+     <div class="form-group">
+      <label for="pwd">PONTO REFERÊNCIA:</label>
+      <input type="text" class="form-control" id="referencia" name="referencia">
+    </div><br><br>
+     <div class="form-group">
+      <label for="pwd">COORDENADAS:</label>
+      <input type="text" class="form-control" id="coord1" name="coord1">
+    </div>
+     <div class="form-group">
+      &nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp &nbsp &nbsp &nbsp<label for="pwd">COORDENADAS:</label>
+      <input type="text" class="form-control" id="coord2" name="coord2" >
+    </div><br><br><br>
+    <label for="email">Foto Antes: </label>
+    <input type="file"  id="ftaarquivo1" name="ftaarquivo1"  /> <label for="email">Foto Antes: </label> 
+   
+ <input type="file" id="ftaarquivo2"  name="ftaarquivo2"/><label for="email">Foto Antes: </label>
+    <input type="file"  id="ftaarquivo3"  name="ftaarquivo3"/><label for="email">Foto Antes: </label>
+    <input type="file"  id="ftaarquivo4"  name="ftaarquivo4"/><label for="email">Foto Antes: </label>
+    <input type="file"  id="ftaarquivo5"  name="ftaarquivo5"/>
+     <label for="email">Foto Depois: </label>
+    <input type="file"  id="ftdarquivo1"  name="ftdarquivo1"/> <label for="email">Foto Depois: </label> 
+    <input type="file" id="ftdarquivo2"  name="ftdarquivo2"/><label for="email">Foto Depois </label>
+    <input type="file"  id="ftdarquivo3"  name="ftdarquivo3"/><label for="email">Foto Depois </label>
+    <input type="file"  id="ftdarquivo4"  name="ftdarquivo4"/><label for="email">Foto Depois </label>
+    <input type="file"  id="ftdarquivo5" name="ftdarquivo5" />
+
+     <br><br><button type="submit" value="Enviar" class="btn btn-default"> <strong>Enviar</strong> </button>
+
+
+
+     
+
+        
+   
+
+  
+
+  
+    
+   
+     
+
+    
+    
+  
+  
+    
+    
+
+
+    
+  </form>
+
+ 
+ </div>
+
+
+
+
+</body>
+</html>
+
