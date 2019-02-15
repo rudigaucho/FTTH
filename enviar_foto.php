@@ -11,12 +11,12 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
 }
 
 
-$ba = $_GET['ba'];
+$id = $_GET['id'];
 
 
 
 
-$sql = mysql_query ("select  * from atv_comp_principal  where ba='$ba';" );
+$sql = mysql_query ("select  * from principal  where id='$id';" );
 // $sql2 = mysql_query ("select count(*) as conta  from relatorio where gra = '".$busca."' and data BETWEEN  '$data 00:00:00' and '$data 23:59:00' order by data desc   " );
 
 
@@ -29,10 +29,11 @@ if (mysql_num_rows($sql) > 0)
 
 {
     while ($dado = mysql_fetch_assoc($sql)){
+        $celula = $dado["celula"];
+        $logradouro = $dado["logradouro"];
+        $fachada = $dado["fachada"];
         $data = $dado["data"];
         $id = $dado["id"];
-        $cabo = $dado["cabo"];
-        $equipe = $dado["equipe"];
 
    
          
@@ -169,7 +170,7 @@ height:70px;
 
 
 </style>
-  <title>PREVENTIVA DE FIBRA</title>
+  <title>TESTE FTTH</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -206,24 +207,25 @@ height:70px;
   
   <form class="form" role="form" name="seachform" method="post" action="atualiza_foto.php " enctype="multipart/form-data" >
 
+  <input type="hidden" class="form-control"  name="id" maxlength="9"  placeholder="9 digitos" readonly value="<?php echo $id; ?>">
 
     <div class="form-group">
 
-       <label for="email">BA:</label>
-      <input type="text" class="form-control" id="ba" name="ba" maxlength="9"  placeholder="9 digitos" readonly value="<?php echo $ba; ?>">
+       <label for="email">CELULA:</label>
+      <input type="text" class="form-control"  name="celula" maxlength="9"  placeholder="9 digitos" readonly value="<?php echo $celula; ?>">
     </div>
      <div class="form-group">
 
 
 
 
-      <label for="email">EQUIPE:</label>  
-      <input type="text" class="form-control" id="id" name="id"  readonly value="<?php echo $equipe; ?>">
+      <label for="email">LOGRADOURO:</label>  
+      <input type="text" class="form-control"  name="logradouro"  readonly value="<?php echo $logradouro; ?>">
     </div>
        <div class="form-group">
-    <label for="cabo">CABO:</label>
-      <input type="text" class="form-control" id="cabo" name="cabo" readonly value="<?php echo $cabo; ?>">
-       <img src="loading.gif" id="loading" style="display:none " />
+    <label for="cabo">FACHADA:</label>
+      <input type="text" class="form-control"  name="fachada" readonly value="<?php echo $fachada; ?>">
+       
       </div>
     
     <div class="form-group">
@@ -234,19 +236,15 @@ height:70px;
    
     <br><br>
     <div class="form-group" id="realcar">
-    <label for="email">Foto Antes: </label>
-    <input type="file"  id="ftaarquivo1" name="ftaarquivo1"   /> 
-
+    <label for="email">Fotos: </label>
+    <input type="file"  id="ftaarquivo1" name="ftaarquivo1"   /> <br>
+    <input type="file"  id="ftdarquivo2"  name="ftaarquivo2" />  
 
    
 
      </div>
 
-     <div class="form-group" id="realcar2">
-     <label for="email"  >Foto Depois </label>
-    <input type="file"  id="ftdarquivo1"  name="ftdarquivo1" />  
-   
-     </div>
+    
 
     
      <br><br><button type="submit" value="Enviar" class="btn btn-danger" id="enviar"> <strong>Enviar</strong> </button><br><br><br><br>

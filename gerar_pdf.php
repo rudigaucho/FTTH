@@ -17,49 +17,50 @@ include 'mpdf/mpdf.php';
  }
 
 
-$ba =$_GET['ba'];
+$id =$_GET['id'];
 
 
-$sql = mysql_query ("select * from atv_comp_principal where  ba = '$ba' " );
+$sql = mysql_query ("select * from principal where  id = '$id' " );
 
 
 
   while ($dado = mysql_fetch_assoc($sql )){
 
-  $vist_cabos = $dado ["vist_cabos"]; 
-  $poste_subs = $dado ["poste_subs"]; 
-  $postes_apru = $dado ["postes_apru"]; 
-  $vist_cabos = $dado ["vist_cabos"]; 
-  $equipe = $dado ["equipe"]; 
-  $read_rede = $dado ["read_rede"]; 
-  $read_cabos = $dado ["read_cabos"]; 
-  $lancamentos_cab = $dado ["lancamentos_cab"]; 
-  $poda_rocada = $dado ["poda_rocada"]; 
-  $postes_implant = $dado ["postes_implant"]; 
-  $vistorias_esta = $dado ["vistorias_esta"]; 
-  $coordenadas1 = $dado ["coordenadas1"]; 
-  $coordenadas2 = $dado ["coordenadas2"]; 
-  $data = $dado ["data"]; 
-  $equipe = $dado ["equipe"]; 
-  $cabo = $dado ["cabo"]; 
+  $celula = $dado ["celula"]; 
+  $logradouro = $dado ["logradouro"]; 
+  $fachada = $dado ["fachada"]; 
+  $db = $dado ["db"]; 
+  $gestor = $dado ["gestor"]; 
+  $ident = $dado ["ident"]; 
+  $rede_ext = $dado ["rede_ext"]; 
+  $rede_inter = $dado ["rede_inter"]; 
+  $fusao = $dado ["fusao"]; 
   $obs = $dado ["obs"]; 
-  $fta1 = $dado ["foto_antes1"]; 
-  $fta2 = $dado ["foto_antes2"]; 
-  $fta3 = $dado ["foto_antes3"]; 
-  $fta4 = $dado ["foto_antes4"]; 
-  $fta5 = $dado ["foto_antes5"]; 
+  $data = $dado ["data"]; 
+  $cdo = $dado ["cdo"]; 
+  
+
+
  
-  $fdep1 = $dado ["foto_dep1"]; 
-  $fdep2 = $dado ["foto_dep2"]; 
-  $fdep3 = $dado ["foto_dep3"]; 
-  $fdep4 = $dado ["foto_dep4"]; 
-  $fdep5 = $dado ["foto_dep5"];
+  
 
 
 
 
   }
 
+
+  $sql2 = mysql_query ("select * from foto where  celula= '$celula' and logradouro='$logradouro' and fachada = '$fachada' " );
+
+  while ($dado2 = mysql_fetch_assoc($sql2)){
+
+
+
+  $foto1 = $dado2 ["foto1"]; 
+  $foto2 = $dado2 ["foto2"]; 
+
+
+  }
 
 
 $pagina = 
@@ -74,23 +75,20 @@ $pagina =
 <body>
 
 
- <img src="img/oi.png" alt="" width="150" height="150"  > 
-<h3 style="text-align: center;">FISCALIZAÇÃO DE PREVENTIVAS</h3>
-<h5>BA: <strong> '.$ba.'  </strong> </h5>
-<h5>DATA: '.$data.' </h5>
-<h5>EQUIPE: '.$equipe.' </h5>
-<h5>CABO:'.$cabo.' </h5>
-<h5>REDISPOSIÇÃO DE CABOS:'.$read_cabos.' KM </h5>
-<h5>LANÇAMENTO DE CABOS:'.$lancamentos_cab.' KM </h5>
-<h5>VISTORIA DE CABOS:'.$vist_cabos.' KM</h5>
-<h5>POSTES SUBSTITUIDOS:'.$poste_subs.' </h5>
-<h5>POSTES APRUMADOS:'.$postes_apru.' </h5>
-<h5>READEQUAÇÃO DE REDE:'.$read_rede.' KM </h5>
-<h5>PODA ROÇADA: '.$poda_rocada.' KM </h5>
-<h5>POSTES IMPLANTADOS: '.$postes_implant.'</h5>
-<h5>VISTÓRIA HORA: '.$vistorias_esta.'</h5>
-<h5>LATITUDE: '.$coordenadas1.'</h5>
-<h5>LONGITUDE: '.$coordenadas2.'</h5>
+ <img src="img/logo_serede.png" alt="" width="80" height="80"  > 
+<h3 style="text-align: center;">RELATÓRIO TESTE FTTH</h3>
+<h5>DATA: <strong> '.$data.'  </strong> </h5>
+<h5>CELULA: <strong> '.$celula.'  </strong> </h5>
+<h5>CDO: '.$cdo.' </h5>
+<h5>ENDEREÇO: '.$logradouro.' </h5>
+<h5>FACHADA:'.$fachada.' </h5>
+<h5>DB:'.$db.' </h5>
+<h5>GESTOR:'.$gestor.'  </h5>
+<h5>IDENTIFICAÇÃO:'.$ident.' </h5>
+<h5>REDE EXTERNA:'.$rede_ext.' </h5>
+<h5>REDE INTERNA:'.$rede_inter.' </h5>
+<h5>FUSÃO:'.$fusao.'  </h5>
+
 
 <h5>OBS: '.$obs.'</h5>
  <br> <br>
@@ -99,8 +97,8 @@ $pagina =
   <body>
 <table>
 <tr>  
-<th><img src="fotos/'.$fta1.'"  width="300" height="300"> <figcaption>Antes</figcaption>  </th>
-<th><img src="fotos/'.$fdep1.'"  width="300" height="300"><figcaption>Depois</figcaption>  </th> 
+<th><img src="fotos/'.$foto1.'"  width="300" height="300"> <figcaption></figcaption>  </th>
+<th><img src="fotos/'.$foto2.'"  width="300" height="300"><figcaption></figcaption>  </th> 
 
 
 </tr>
@@ -132,7 +130,7 @@ $pagina =
 
 
 
-$footer = "<p style='font-size:10px;'>Fibra Serede –  Controle de preventivas</p>";
+$footer = "<p style='font-size:10px;'>Fibra Serede –  Teste FTTH</p>";
 $arquivo = "cadastro02.pdf"; 
 
 

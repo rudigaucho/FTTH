@@ -7,7 +7,7 @@
 <html lang="pt-br">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="icon" href="img/logo_oi.ico">
+<link rel="icon" href="img/logo_serede.png">
 
 <script type="text/javascript">
 function fnExcelReport() {
@@ -65,7 +65,7 @@ function loginsuccessfully()
 </script>
 
   <link rel="icon" href="img/key.png">
-  <title>PREVENTIVA DE FIBRA</title>
+  <title>TESTE FTTH</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -188,11 +188,12 @@ function loginsuccessfully()
     <thead>
       <tr >
        
-        <th>D.C</th>
+        <th>CELULA</th>
+        <th>CDO</th>
         <th>DATA</th>
-        <th>D.B</th>
-        <th>CDOE</th>
-         <th>CDOI</th>
+        <th>ENDEREÇO</th>
+        <th>FACHADA</th>
+         <th>DB</th>
          <th>GESTOR</th>
          <th>RELATÓRIO</th>
         <th>ANEXAR FOTOS</th>
@@ -215,7 +216,10 @@ $data = $_POST['date'];
 $data2 = $_POST['date2'];
 
 
-$sql = mysql_query ("select  * principal  where data BETWEEN   '$data' and '$data2'" );
+
+
+
+$sql = mysql_query ("select  * from principal  where data BETWEEN   '$data' and '$data2'" );
 // $sql2 = mysql_query ("select count(*) as conta  from relatorio where gra = '".$busca."' and data BETWEEN  '$data 00:00:00' and '$data 23:59:00' order by data desc   " );
 $sql3 =  mysql_query ("select  count(*) as conta from principal  where data BETWEEN   '$data' and '$data2'" );
 
@@ -237,26 +241,56 @@ if (mysql_num_rows($sql) > 0)
 ?>
     <tbody>
       <tr class="success">
+
       
-<td> <?php echo $dado ["dc"];  ?></td>
+      
+<td> <?php echo $dado ["celula"];  ?></td>
+<td> <?php echo $dado ["cdo"];  ?></td>
 <td> <?php echo $dado ["data"];  ?></td>
+<td> <?php echo $dado ["logradouro"];  ?></td>
+<td> <?php echo $dado ["fachada"];  ?></td>
 <td> <?php echo $dado ["db"];  ?></td>
-<td> <?php echo $dado ["cdoe"];  ?></td>
-<td> <?php echo $dado ["cdoi"];  ?></td>
+
 <td> <?php echo $dado ["gestor"];  ?></td>
 
 
 
 
-<td> <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal<?php echo $dado ['dc'];  ?>" >Visualizar</button> </td>
+<?php
+$fachada = $dado ["fachada"];
+$logradouro = $dado ["logradouro"];
+
+$sql2 = mysql_query ("select  * from foto  where logradouro = '$logradouro' and fachada = '$fachada'" );
+$row2 = mysql_num_rows($sql2);
+ if  ($row2 > 0)
+{
+
+
+while ($dado2 = mysql_fetch_assoc($sql2)){
+
+$foto1 = $dado2["foto1"];  
+$foto2 = $dado2["foto2"];  
+$cdo = $dado2["cdo"];  
+
+}
+   
+  
+
+  
+}
+?>
+
+
+
+<td> <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal<?php echo $dado ['id'];  ?>" >Visualizar</button> </td>
 <?php if ($dado ["editada"] == 'N'){ ?>
-<td> <a href="enviar_foto.php?ba=<?php echo $dado ["dc"]; ?>" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Anexar</a> </td>
+<td> <a href="enviar_foto.php?id=<?php echo $dado ["id"]; ?>" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Anexar</a> </td>
 <?php } else { ?> <td> </td>  <?php } ?>
-<td> <a href="gerar_pdf.php?ba=<?php echo $dado ["dc"]; ?>" target="_blank" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Gerar Pdf</a>
+<td> <a href="gerar_pdf.php?id=<?php echo $dado ["id"]; ?>" target="_blank" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Gerar Pdf</a></td>
 
 
 
-<div class="modal fade" id="myModal<?php echo $dado ['dc'];  ?>" role="dialog">
+<div class="modal fade" id="myModal<?php echo $dado ['id'];  ?>" role="dialog">
     <div class="modal-dialog-lg">
     
       <!-- Modal content-->
@@ -264,23 +298,25 @@ if (mysql_num_rows($sql) > 0)
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title" style="text-align:center">RELATÓRIO<h4>
-          <p>DC: <strong><?php echo $dado ["dc"];  ?></strong></p>
+          <p>CELULA: <strong><?php echo $dado ["celula"];  ?></strong></p>
+          <p>CDO: <strong><?php echo $dado ["cdo"];  ?></strong></p>
           <p>DATA: <strong><?php echo $dado ["data"];  ?></strong></p>
           <p>DB: <strong><?php echo $dado ["db"];  ?></strong></p>
-          <p>CDOE: <strong><?php echo $dado ["cdoe"];  ?></strong></p>
-          <p>CDOI: <strong><?php echo $dado ["cdoi"];  ?></strong></p>
-          <p>GESTOR: <strong><?php echo $dado ["gestor"];  ?></strong></p>
           <p>IDENTIFICAÇÃO: <strong><?php echo $dado ["ident"];  ?></strong></p>
           <p>REDE EXTERNA: <strong><?php echo $dado ["rede_ext"];  ?></strong></p>
-          <p>REDE INTERNA: <strong><?php echo $dado ["rede_int"];  ?></strong></p>
+          <p>REDE INTERNA: <strong><?php echo $dado ["rede_interna"];  ?></strong></p>
           <p>FUSÃO: <strong><?php echo $dado ["fusao"];  ?></strong></p>
           <p>OBS: <strong><?php echo $dado ["obs"];  ?></strong></p>
+
+
+         
+          
 
 
         <div class="modal-header" style="float:right; margin-top:-26%; margin-right:5%;">
         
             </div>
-          <br><h4 class="modal-title">FOTO ANTES<h4>
+          <br><h4 class="modal-title">FOTOS<h4>
         
         </h4>
         <div class="modal-body">

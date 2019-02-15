@@ -1,6 +1,6 @@
 ﻿
 <?php
-      
+     include "conn.php";  
 session_start();
 
 if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"])  )
@@ -55,6 +55,51 @@ $(document).ready(function() {
 </script>
 
 
+<script type="text/javascript">
+       
+      $(document).ready(function(){
+          
+         $("select[name=celula]").change(function(){
+            $("select[name=logradouro]").html('<option value="0">Carregando...</option>');
+             
+            $.post("celulas.php",
+                  {celula:$(this).val()},
+                  function(valor){
+                     $("select[name=logradouro]").html(valor);
+                  }
+                  )
+             
+         })
+
+
+
+         $("select[name=logradouro]").change(function(){
+            $("select[name=fachada]").html('<option value="0">Carregando...</option>');
+            $.post("logradouro.php",
+                  {logradouro:$(this).val()},
+                    function(valor){
+                      $("select[name=fachada]").html(valor);
+                  }
+                  )
+          })
+
+
+
+
+         $("select[name=fachada]").change(function(){
+            $("select[name=dc]").html('<option value="0">Carregando...</option>');
+            $.post("dc.php",
+                  {localidade:$(this).val()},
+                    function(valor){
+                      $("select[name=dc]").html(valor);
+                  }
+                  )
+          })
+      })
+       
+</script>
+
+
 
 
 <!--   FIM FUNCAO                            -->
@@ -89,7 +134,7 @@ $(document).ready(function() {
 
 
 
-<link rel="icon" href="img/logo_oi.ico">
+<link rel="icon" href="img/logo_serede.png">
 
 
 
@@ -146,7 +191,7 @@ height:70px;
       <a class="navbar-brand" href="#">Serede</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active" style="float:right"><a href="pesq_ba.php">Busca BA</a></li>
+      <li class="active" style="float:right"><a href="pesq_ba.php">Busca Célula</a></li>
       <li class="active" style="float:right"><a href="pesq_per.php">Busca Período</a></li>
       <li class="active" style="float:right"><a href="logout.php">Logout</a></li>
       
@@ -168,11 +213,38 @@ height:70px;
   
   <form class="form" role="form" name="seachform" method="post" action="enviar.php " enctype="multipart/form-data" >
 
+  <div class="form-group">  
+    <label for="email" >CELULA:</label> <br>
+    <select class="form-control"  name="celula">
+       <option value="0" disabled="disabled">Escolha uma célula.</option>
 
+        <?php
+     
+          
+         $sql = "SELECT * FROM celulas group by celula";
+         $qr = mysql_query($sql) or die(mysql_error());
+         while($ln = mysql_fetch_assoc($qr)){
+            echo '<option value="'.$ln['celula'].'">'.$ln['celula'].'</option>';
+         }
+      ?>
+    </select>
+        </div> 
+
+        <div class="form-group">  
+    <label for="email" >LOGRADOURO:</label> <br>
+    <select  name="logradouro">
+       <option value="0" disabled="disabled">Escolha uma logradouro</option>
+    </select>
+        </div>
+
+   
     <div class="form-group">
-
-       <label for="email">DC:</label>
-      <input type="text" class="form-control"  name="dc"  required >
+          <label for="email" >FACHADA:</label> 
+       <select class="form-control" name="fachada">
+       <option value="0">Escolha a fachada</option>
+        
+        
+    </select>
     </div>
      
        <div class="form-group">
@@ -184,61 +256,10 @@ height:70px;
   
 
     
-    <div class="form-group">
-    <label class="radio-inline"><input type="radio"  name="optradio" value="cdoe">CDOE</label>
-<label class="radio-inline"><input type="radio" name="optradio" value="cdoi" >CDOI</label>
-
-    </div><br>  
+    
 
 
-    <div class="form-group" id="tb1" ">
-    <label for="cabo">N° CDOE:</label>
-      <input type="text"  class="form-control"  name="cdoe" >
-       
-      </div>
-
-      <div class="form-group" id="tb2">
-    <label for="cabo">N° CDOI:</label>
-      <input type="text" class="form-control"  name="cdoi" >
-       
-      
-
-
-<div class="wrapper">
-    <div class="toclone">
-    <select name="list[qtd][]" style="display:none">
-            <option value="0"></option>
-        
-        </select>
-  
-        <span>CDOIA</span><BR>
-        <input  type="text" placeholder="N° CDOIA" name="produtos[qtd][1]">
-        <button type="button" class="add">+</button>
-        <button type="button" class="remove">-</button>
-    </div>        
-</div><br>
-</div><br>
-<script type="text/javascript">
-function adicionar(){
-  var ElementoClonado = $(this.parentNode).clone(); //clona o elemento
-  var str = $(ElementoClonado).children('input').eq(0).attr('name').split("["); //divide o name por "["
-  console.log(str);
-  var intQtd = parseInt(str[2].split("]")[0]); //resgata o numero entre "[" e "]"
-  console.log(intQtd);
-  var newName = "produtos[qtd]["+(intQtd+1)+"]"; //novo valor name somado +1 do original
-  ElementoClonado.children('input').eq(0).attr('name', newName); //seta o novo name para o elemento clonado
-  $('.wrapper').append(ElementoClonado);
-  $('.add').on("click", adicionar);
-  $('.remove').on("click", remover);
-  $(this).unbind("click");
-}
-function remover(){
-  $(this.parentNode).remove();
-}
-$('.add').on("click", adicionar);
-$('.remove').on("click", remover);
-
-</script>
+    
 
 <div class="form-group">
     <label for="pwd">NOME GESTOR:</label>
@@ -283,7 +304,7 @@ $('.remove').on("click", remover);
 
     <div class="form-group">
     <label for="pwd">FUSÕES:</label>
-    <br><select class="custom-select my-1 mr-sm-2" name="fusoes">
+    <br><select class="custom-select my-1 mr-sm-2" name="fusao">
     <option selected value="ok">OK</option>
     <option value="nok">NOK</option>
     </select>
@@ -306,31 +327,17 @@ $('.remove').on("click", remover);
      
      
   
-
-    <!--
-    <br><br>
-    <div class="form-group" id="realcar">
-    <label for="email">Foto Antes: </label>
-    <input type="file"  id="ftaarquivo1" name="ftaarquivo1"   /> 
+    <div class="form-group" >
+    <label for="email">Fotos: </label> <label style="font-size: 12px; color: red;" >(Permitido apenas fotos menores que 2MB)</label>
+    <input type="file"  id="foto1" name="foto1" required /><br>
+    <input type="file"  id="foto1" name="foto2" required />
+   
 
 
    
- <input type="file" id="ftaarquivo2"  name="ftaarquivo2" />
-    <input type="file"  id="ftaarquivo3"  name="ftaarquivo3" />
-    <input type="file"  id="ftaarquivo4"  name="ftaarquivo4" />
-    <input type="file"  style="float:left" id="ftaarquivo5"  name="ftaarquivo5" /><br><br>
+ 
+    
      </div>
-
-     <div class="form-group" id="realcar2">
-     <label for="email"  >Foto Depois </label>
-    <input type="file"  id="ftdarquivo1"  name="ftdarquivo1" />  
-    <input type="file"  id="ftdarquivo2"  name="ftdarquivo2" />
-    <input type="file"   id="ftdarquivo3"  name="ftdarquivo3" />
-    <input type="file"   id="ftdarquivo4"  name="ftdarquivo4" />
-    <input type="file"  id="ftdarquivo5" name="ftdarquivo5"   />
-     </div>
-
-     -->
      <br><br><button type="submit" value="Enviar" class="btn btn-danger" id="enviar"> <strong>Enviar</strong> </button><br><br><br><br>
 
 

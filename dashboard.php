@@ -34,7 +34,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
 <html lang="en">
 
 <head>
-<link rel="icon" href="img/icon.ico">
+<link rel="icon" href="img/logo_serede.png">
    <script type="text/javascript" src="loader.js"></script>
     <script type="text/javascript" src="loader.js"></script>
     <script type="text/javascript">
@@ -43,24 +43,24 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Mês', 'Preventivas', '', ''],
-          ['JAN', <?php echo $JAN ?>, 0, 0],
-          ['FEV', <?php echo $FEV ?>,0, 0],
-          ['MAR', <?php echo $MAR ?>, 0, 0],
-          ['ABR', <?php echo $ABR ?>, 0, 0],
-          ['MAI', <?php echo $MAI ?>, 0, 0],
-          ['JUN', <?php echo $JUN ?>, 0, 0],
-          ['JUL', <?php echo $JUL ?>, 0, 0],
-          ['AGO', <?php echo $AGO ?>, 0, 0],
-          ['SET', <?php echo $SET ?>, 0, 0],
-          ['OUT', <?php echo $OUT ?>, 0, 0],
-          ['NOV', <?php echo $NOV ?>, 0, 0],
-          ['DEZ', <?php echo $DEZ ?>, 0, 0]
+          ['Mês', 'Teste', '', ''],
+          ['JAN', 22, 0, 0],
+          ['FEV', 37,0, 0],
+          ['MAR', 15, 0, 0],
+          ['ABR', 50, 0, 0],
+          ['MAI', 42, 0, 0],
+          ['JUN', 88, 0, 0],
+          ['JUL', 29, 0, 0],
+          ['AGO', 11, 0, 0],
+          ['SET', 14, 0, 0],
+          ['OUT', 65, 0, 0],
+          ['NOV', 12, 0, 0],
+          ['DEZ', 12, 0, 0]
         ]);
 
         var options = {
           chart: {
-            title: 'Total Atividades  <?php echo date('Y') ?>',
+            title: 'Total Testes  <?php echo date('Y') ?>',
             subtitle: '',
           }
         };
@@ -79,20 +79,12 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
       function drawStuff() {
         var data = new google.visualization.arrayToDataTable([
           ['Move', 'Atividades'],
-          ["LDANT1", <?php echo $LDA_NT_1 ?>],
-          ["MQSNT1", <?php echo $MQS_NT_1 ?>],
-          ["WBZNT1", <?php echo $WBZ_NT_1 ?>],
-          ["LDA1", <?php echo $LDA_1 ?>],
-          ["APU1", <?php echo $APU_1 ?>],
-          ['JZO1', <?php echo $JZO_1 ?>],
-          ['LDA2', <?php echo $LDA_2 ?>],
-          ['WBZ1', <?php echo $WBZ_1 ?>],
-          ['WBA1', <?php echo $WBA_1 ?>],
-          ['IVPML', <?php echo $IVP_ML ?>],
-          ['LDACL', <?php echo $LDA_CL ?>],
-          ['WBZML', <?php echo $WBZ_ML ?>],
-          ['LDAD', <?php echo $LDA_D ?>],
-          ['PGOD', <?php echo $PGO_D ?>]
+          ['PAULO', 10],
+          ['GESTOR Y', 15],
+          ['GESTOR W', 13],
+          ['GESTOR F', 2],
+          ['GESTOR P', 7]
+         
           
         ]);
 
@@ -100,7 +92,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
           width: 900,
           legend: { position: 'none' },
           chart: {
-            title: 'Melhores equipes do Ano <?php echo date('Y') ?>',
+            title: 'Total de atividades por gestor ano <?php echo date('Y') ?>',
             subtitle: '' },
           axes: {
             x: {
@@ -117,76 +109,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
     </script>
 
 
-<script type="text/javascript" src="loader.js"></script>
-    <script type="text/javascript">
-google.charts.load('current', {'packages':['bar']});
-  
-      google.charts.setOnLoadCallback(drawStuff2);
 
-      function drawStuff2() {
-        var data = new google.visualization.arrayToDataTable([
-          ['Move', 'Quantidade'],
-          ["Postes aprumados", <?php echo $postes_apru ?>],
-          ["Postes Substituidos", <?php echo $poste_subs ?>],
-          ["Postes implantados", <?php echo $postes_implant ?>]
-         
-        ]);
-
-        var options = {
-          width: 800,
-          legend: { position: 'none' },
-          chart: {
-            title: 'Postes',
-            subtitle: '' },
-          axes: {
-            x: {
-              0: { side: 'top', label: 'Atividades postes ano <?php echo date('Y') ?>'} // Top x-axis.
-            }
-          },
-          bar: { groupWidth: "90%" }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('top_x_div2'));
-        // Convert the Classic options to Material options.
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      };
-
-
-     
-
-</script>
-
-    
-
-
-<script type="text/javascript" src="loader.js"></script>
-    <script type="text/javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Readequação cabo KM',    <?php echo $red_cab ?>],
-          ['Lançamento cabo KM',    <?php echo $lancamentos_cab ?>],
-          ['Vistoria cabo KM',    <?php echo $vist_cabos ?>],
-          ['Poda roçada KM',    <?php echo $poda_rocada ?>],
-          ['Readequação rede KM',    <?php echo $read_rede ?>]
-        ]);
-
-        var options = {
-          title: 'Atividades por KM ano <?php echo date('Y') ?> ',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
-      }
-    </script>
-
-
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
 
@@ -208,7 +131,7 @@ google.charts.load('current', {'packages':['bar']});
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>CONTROLE DE PREVENTIVA</title>
+    <title>TESTE FTTH</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -288,13 +211,13 @@ google.charts.load('current', {'packages':['bar']});
                   
                    <li class="dropdown">
 
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-scale">  BUSCA</span>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-scale">  MENU</span>
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           
-          
+        <li style="background:black;"><a href="cad_ba.php"><span class="glyphicon glyphicon-pencil"> CADASTRO </a></li>
           <li style="background:black;"><a href="pesq_per.php"><span class="glyphicon glyphicon-calendar"> BUSCA PERÍODO</a></li>
-          <li style="background:black;"><a href="pesq_ba.php"><span class="glyphicon glyphicon-search"> BUSCA BA</a></li>
+          <li style="background:black;"><a href="pesq_ba.php"><span class="glyphicon glyphicon-search"> BUSCA CÉLULA</a></li>
           
                  
                 
@@ -330,7 +253,7 @@ google.charts.load('current', {'packages':['bar']});
                        
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i > <h4>Relatório Gráfico de preventivas PR</h4></i>
+                                <i > <h4>Relatório Gráfico Testes FTTH PR</h4></i>
                             </li>
                         </ol>
 
@@ -343,8 +266,7 @@ google.charts.load('current', {'packages':['bar']});
 
                 <div id="columnchart_material" style="width: 800px; height: 500px;"></div><br><br>
                 <div id="top_x_div" style="width: 800px; height: 600px;"></div><br><br><br>
-                <div id="top_x_div2" style="width: 400px; height: 300px;"></div><br><br><br>
-                <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+                
 
 
 

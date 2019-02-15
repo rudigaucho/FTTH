@@ -90,7 +90,7 @@ if($row > 0  )
 
 
 
-	echo "<h2 align='center'>Oi $nome! Você foi logado (a) com sucesso!<h2> <br> <img src='img/oi.png' style=' width: 200px; height:200px; padding-left:40%; '  > ";
+	echo "<h2 align='center'>Oi $nome! Você foi logado (a) com sucesso!<h2> <br> <img src='img/logo_serede.png' style=' width: 80px; height:80px; padding-left:40%; '  > ";
 
 	 echo "<script>loginsuccessfully()</script>";
 

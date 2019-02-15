@@ -12,7 +12,7 @@ include "conn.php";
 
 session_start();
 
-if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["acesso"] != 'TEC' ) )
+if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
 {
   header("Location: index.html");
   exit;
@@ -27,38 +27,23 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
 //{
  // header("Location: index.html");
   //exit;
-  
+  */
   
 //}
 
 //if(isset($_FILES['arquivo'],$_FILES['arquivo2'])) {
 	$permite = array('image/jpg', 'image/jpeg' , 'image/png');
-    $type =$_FILES['ftaarquivo1'] ['type'];
-    $type2 =$_FILES['ftaarquivo2'] ['type'];
-     $type3 =$_FILES['ftaarquivo3'] ['type'];
-      $type4 =$_FILES['ftaarquivo4'] ['type'];
-       $type5 =$_FILES['ftaarquivo5'] ['type'];
-        $type6 =$_FILES['ftdarquivo1'] ['type'];
-         $type7 =$_FILES['ftdarquivo2'] ['type'];
-          $type8 =$_FILES['ftdarquivo3'] ['type'];
-           $type9 =$_FILES['ftdarquivo4'] ['type'];
-            $type10 =$_FILES['ftdarquivo5'] ['type'];
+    $type =$_FILES['foto1'] ['type'];
+    $type2 =$_FILES['foto2'] ['type'];
+     
 
 
 //  ------------------------------------------ VERIFICACAO TAMANHO FOTOS ------------------------------------------------------- 
 
 
-            $tamanho1 =$_FILES['ftaarquivo1']['size'];
-            $tamanho2 =$_FILES['ftaarquivo2']['size'];
-            $tamanho3 =$_FILES['ftaarquivo3']['size'];
-            $tamanho4 =$_FILES['ftaarquivo4']['size'];
-            $tamanho5 =$_FILES['ftaarquivo5']['size'];
-            
-            $tamanho6 =$_FILES['ftdarquivo1']['size'];
-            $tamanho7 =$_FILES['ftdarquivo2']['size'];
-            $tamanho8 =$_FILES['ftdarquivo3']['size'];
-            $tamanho9 =$_FILES['ftdarquivo4']['size'];
-            $tamanho10 =$_FILES['ftdarquivo5']['size'];
+            $tamanho1 =$_FILES['foto1']['size'];
+            $tamanho2 =$_FILES['foto2']['size'];
+         
 
 
 
@@ -81,70 +66,11 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
 
 
             }
-             if(empty($_FILES['ftaarquivo3'] ['type']))
-            {
-
-               $type3 = 'image/png';
+             
 
 
 
-            }
-            if (empty($_FILES['ftaarquivo4'] ['type']))
-            {
-
-               $type4 = 'image/png';
-
-
-
-            }
-             if(empty($_FILES['ftaarquivo5'] ['type']))
-            {
-
-               $type5 = 'image/png';
-
-
-
-            }
-           if(empty($_FILES['ftdarquivo1'] ['type']))
-            {
-
-               $type6 = 'image/png';
-
-
-
-            }
-                 if(empty($_FILES['ftdarquivo2'] ['type']))
-            {
-
-               $type7 = 'image/png';
-
-
-
-            }
-                if(empty($_FILES['ftdarquivo3'] ['type']))
-            {
-
-               $type8 = 'image/png';
-
-
-
-            }
-            if(empty($_FILES['ftdarquivo4'] ['type']))
-            {
-
-               $type9 = 'image/png';
-
-
-
-            }
-              if(empty($_FILES['ftdarquivo5'] ['type']))
-            {
-
-               $type10 = 'image/png';
-
-
-
-            }
+            
 
 //-----------------------------------------------------------------------------------
 
@@ -156,7 +82,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
 
 
 
-	$extensao = strtolower(substr($_FILES['ftaarquivo1'] ['name'], -4));
+	$extensao = strtolower(substr($_FILES['foto1'] ['name'], -4));
 	$novo_nome  = md5(mt_rand(1, 1000) . microtime()) . $extensao;
     $diretorio = "fotos/";
 
@@ -167,7 +93,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
 
 
 
-$extensao2 = strtolower(substr($_FILES['ftaarquivo2'] ['name'], -4));
+$extensao2 = strtolower(substr($_FILES['foto2'] ['name'], -4));
 	$novo_nome2  = md5(mt_rand(1, 1000) . microtime()). $extensao2;
     $diretorio = "fotos/";
 
@@ -176,95 +102,20 @@ $extensao2 = strtolower(substr($_FILES['ftaarquivo2'] ['name'], -4));
 
 	
 
-$extensao3 = strtolower(substr($_FILES['ftaarquivo3'] ['name'], -4));
-	$novo_nome3  = md5(mt_rand(1, 1000) . microtime()). $extensao3;
-    $diretorio = "fotos/";
-
-
-
-
-$extensao4 = strtolower(substr($_FILES['ftaarquivo4'] ['name'], -4));
-	$novo_nome4  = md5(mt_rand(1, 1000) . microtime()). $extensao4;
-    $diretorio = "fotos/";
 
 
 
 
 
 
-$extensao5 = strtolower(substr($_FILES['ftaarquivo5'] ['name'], -4));
-	$novo_nome5  = md5(mt_rand(1, 1000) . microtime()). $extensao5;
-    $diretorio = "fotos/";
-
-
-
-
-
-
-$extensao6 = strtolower(substr($_FILES['ftdarquivo1'] ['name'], -4));
-	$novo_nome6  = md5(mt_rand(1, 1000) . microtime()). $extensao6;
-    $diretorio = "fotos/";
-
-
-
-
-
-$extensao7 = strtolower(substr($_FILES['ftdarquivo2'] ['name'], -4));
-	$novo_nome7  = md5(mt_rand(1, 1000) . microtime()). $extensao7;
-    $diretorio = "fotos/";
-
-
-
-
-
-$extensao8 = strtolower(substr($_FILES['ftdarquivo3'] ['name'], -4));
-	$novo_nome8  = md5(mt_rand(1, 1000) . microtime()). $extensao8;
-    $diretorio = "fotos/";
-
-
-
-
-
-
-$extensao9 = strtolower(substr($_FILES['ftdarquivo4'] ['name'], -4));
-	$novo_nome9  = md5(mt_rand(1, 1000) . microtime()). $extensao9;
-    $diretorio = "fotos/";
-
-
-
-
-
-
-$extensao10 = strtolower(substr($_FILES['ftdarquivo5'] ['name'], -4));
-	$novo_nome10  = md5(mt_rand(1, 1000) . microtime()). $extensao10;
-    $diretorio = "fotos/";
-
-
-
-
-
-
-
-
-if (!in_array($type,$permite) || !in_array($type2,$permite ) || !in_array($type3,$permite ) )
+if (!in_array($type,$permite) || !in_array($type2,$permite ) )
 {
 
 echo "EXTENSÃO DA IMAGEM INVALIDA, SUA IMAGEM DEVE SER NO FORMATO JPEG,JPG OU PNG!";
 	echo "<script>saidasuccessfully()</script>";
 }
-else if  (!in_array($type4,$permite) || !in_array($type5,$permite )  || !in_array($type6,$permite ) )
-{
 
-echo "EXTENSÃO DA IMAGEM INVALIDA, SUA IMAGEM DEVE SER NO FORMATO JPEG,JPG OU PNG!";
-	echo "<script>saidasuccessfully()</script>";
-}
-else if  (!in_array($type7,$permite) || !in_array($type8,$permite ) || !in_array($type9,$permite ) || !in_array($type10,$permite ) )
-{
-
-echo "EXTENSÃO DA IMAGEM INVALIDA, SUA IMAGEM DEVE SER NO FORMATO JPEG,JPG OU PNG.!";
-	echo "<script>saidasuccessfully()</script>";
-}
-else if ( ($tamanho1 > 2000000) || ($tamanho2 > 2000000) || ($tamanho3 > 2000000) || ($tamanho4 > 2000000) || ($tamanho5 > 2000000) || ($tamanho6 > 2000000) || ($tamanho7 > 2000000) || ($tamanho8 > 2000000) || ($tamanho9 > 2000000) || ($tamanho10 > 2000000) )
+else if ( ($tamanho1 > 2000000) || ($tamanho2 > 2000000)  )
 {
 
 echo "TAMANHO MÁXIMO DA IMAGEM 2MB!";
@@ -272,17 +123,9 @@ echo "TAMANHO MÁXIMO DA IMAGEM 2MB!";
 }
 else
 {
-move_uploaded_file ($_FILES['ftaarquivo1'] ['tmp_name'], $diretorio.$novo_nome )	;
-move_uploaded_file ($_FILES['ftaarquivo2'] ['tmp_name'], $diretorio.$novo_nome2 )	;
-move_uploaded_file ($_FILES['ftaarquivo3'] ['tmp_name'], $diretorio.$novo_nome3	)   ;
-move_uploaded_file ($_FILES['ftaarquivo4'] ['tmp_name'], $diretorio.$novo_nome4 )	;
-move_uploaded_file ($_FILES['ftaarquivo5'] ['tmp_name'], $diretorio.$novo_nome5 )	;
-move_uploaded_file ($_FILES['ftdarquivo1'] ['tmp_name'], $diretorio.$novo_nome6 )	;
-move_uploaded_file ($_FILES['ftdarquivo2'] ['tmp_name'], $diretorio.$novo_nome7 )	;
-move_uploaded_file ($_FILES['ftdarquivo3'] ['tmp_name'], $diretorio.$novo_nome8 )	;
-move_uploaded_file ($_FILES['ftdarquivo4'] ['tmp_name'], $diretorio.$novo_nome9 )	;
-move_uploaded_file ($_FILES['ftdarquivo5'] ['tmp_name'], $diretorio.$novo_nome10 )	;
-	
+move_uploaded_file ($_FILES['foto1'] ['tmp_name'], $diretorio.$novo_nome )	;
+move_uploaded_file ($_FILES['foto2'] ['tmp_name'], $diretorio.$novo_nome2 )	;
+
 
 
 
@@ -292,9 +135,9 @@ move_uploaded_file ($_FILES['ftdarquivo5'] ['tmp_name'], $diretorio.$novo_nome10
 	
 
 	
-//}
+}
 
-*/
+
 
 ?>
 
@@ -340,20 +183,21 @@ function saidasuccessfully()
 
 <?php
 
-$values_gender = $_POST["produtos"]['qtd'];
-$values_gender2 = $_POST["list"]['qtd'];
 
 
 
-$dc =$_POST['dc'];
+
+$celula =$_POST['celula'];
+$logradouro =$_POST['logradouro'];
+$fachada =$_POST['fachada'];
 $db =$_POST['db'];
-$cdoe =$_POST['cdoe'];
-$cdoi =$_POST['cdoi'];
-$ident =$_POST['ident'];
-$rede_ext =$_POST['rede_ext'];
-$rede_int =$_POST['rede_int'];
-$fusoes =$_POST['fusoes'];
 $gestor =$_POST['gestor'];
+$ident =$_POST['ident'];
+$rede_int =$_POST['rede_int'];
+$rede_ext =$_POST['rede_ext'];
+$gestor =$_POST['gestor'];
+$rede_int =$_POST['rede_int'];
+$fusao =$_POST['fusao'];
 $obs =$_POST['obs'];
 
 
@@ -399,22 +243,26 @@ echo 'erro, coordenadas invalidas  exemplo correto: -25.476079!';
 
 
 }
-
 */
-$sql = mysql_query ("select * from principal where dc = '$dc' " );
+
+$sql = mysql_query ("select * from celulas where celula = '$celula' and logradouro = '$logradouro' and fachada = '$fachada'" );
 $row = mysql_num_rows($sql);
  if  ($row == 1)
 {
 
 
-echo "<h1>D.C duplicado!</h1>";
+while ($dado = mysql_fetch_assoc($sql)){
+
+$codigo = $dado["codigo"];  
+
+}
    
   
 
   
 }
-else
-{
+
+
 
   
 
@@ -423,14 +271,21 @@ else
 
 
 
-$query = "insert into principal (dc,db,cdoe,cdoi,ident,rede_ext,rede_inter,fusao,gestor,obs,data,editada)";
+$query = "insert into principal (celula,logradouro,fachada,db,gestor,ident,rede_ext,rede_inter,fusao,obs,data,editada,cdo)";
 
-$query.= "values ('$dc','$db','$cdoe','$cdoi','$ident','$rede_ext','$rede_int','$fusoes','$gestor','$obs',NOW(),'N')";
+$query.= "values ('$celula','$logradouro','$fachada','$db','$gestor','$ident','$rede_ext','$rede_int','$fusao','$obs',NOW(),'N','$codigo')";
 
 
+$query2 = "insert into foto (celula,cdo,logradouro,fachada,foto1,foto2)";
+
+$query2.= "values ('$celula','$codigo','$logradouro','$fachada','$novo_nome','$novo_nome2')";
+
+$query3.="update celulas set encerrada='S' where logradouro='$logradouro' and fachada='$fachada';";
 
 
 $sql = mysql_query($query);
+$sql2 = mysql_query($query2);
+$sql3 = mysql_query($query3);
 
 
 
@@ -441,7 +296,7 @@ $sql = mysql_query($query);
 
 
 
-if($sql )
+if($sql && $sql2)
 {
 	
 	
@@ -462,7 +317,7 @@ else
 
 
 
- }
+ 
  
 
  $i = 0;
