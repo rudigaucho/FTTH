@@ -11,9 +11,9 @@ if(mysql_num_rows($qr) == 0){
    echo  '<option value="0">'.htmlentities('Não há estacao').'</option>';
     
 }else{
-   while($ln = mysql_fetch_assoc($qr)){
+   do{
       echo '<option value="'.$ln['logradouro'].'">'.$ln['logradouro'].'</option>';
-   }
+   }while($ln = mysql_fetch_assoc($qr));
 }
  
 

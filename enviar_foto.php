@@ -2,7 +2,7 @@
 include "conn.php"; 
 session_start();
 
-if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["acesso"] != 'TEC' ) )
+if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"])  )
 {
   header("Location: index.html");
   exit;
@@ -31,7 +31,8 @@ if (mysql_num_rows($sql) > 0)
     while ($dado = mysql_fetch_assoc($sql)){
         $celula = $dado["celula"];
         $logradouro = $dado["logradouro"];
-        $fachada = $dado["fachada"];
+        $cdo = $dado["cdo"];
+        
         $data = $dado["data"];
         $id = $dado["id"];
 
@@ -223,8 +224,8 @@ height:70px;
       <input type="text" class="form-control"  name="logradouro"  readonly value="<?php echo $logradouro; ?>">
     </div>
        <div class="form-group">
-    <label for="cabo">FACHADA:</label>
-      <input type="text" class="form-control"  name="fachada" readonly value="<?php echo $fachada; ?>">
+    <label for="cabo">CDO:</label>
+      <input type="text" class="form-control"  name="cdo" readonly value="<?php echo $cdo; ?>">
        
       </div>
     

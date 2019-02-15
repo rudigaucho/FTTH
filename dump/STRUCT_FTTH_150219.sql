@@ -18,18 +18,38 @@ USE `ftth2`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cdoia`
+-- Table structure for table `celulas`
 --
 
-DROP TABLE IF EXISTS `cdoia`;
+DROP TABLE IF EXISTS `celulas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `cdoia` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dc` varchar(45) DEFAULT NULL,
-  `id_cdoia` varchar(45) DEFAULT NULL,
+CREATE TABLE `celulas` (
+  `id` varchar(20) NOT NULL,
+  `logradouro` varchar(100) DEFAULT NULL,
+  `codigo` varchar(45) DEFAULT NULL,
+  `celula` varchar(85) DEFAULT NULL,
+  `encerrada` varchar(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `foto`
+--
+
+DROP TABLE IF EXISTS `foto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `foto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `celula` varchar(65) DEFAULT NULL,
+  `cdo` varchar(45) DEFAULT NULL,
+  `logradouro` varchar(100) DEFAULT NULL,
+  `foto1` varchar(45) DEFAULT NULL,
+  `foto2` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,23 +60,24 @@ DROP TABLE IF EXISTS `principal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `principal` (
-  `dc` int(11) NOT NULL,
-  `equipe` varchar(45) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `celula` varchar(45) DEFAULT NULL,
+  `logradouro` varchar(45) DEFAULT NULL,
   `db` varchar(45) DEFAULT NULL,
-  `cdoe` varchar(45) DEFAULT NULL,
-  `cdoi` varchar(45) DEFAULT NULL,
   `ident` varchar(45) DEFAULT NULL,
   `rede_ext` varchar(45) DEFAULT NULL,
   `rede_inter` varchar(45) DEFAULT NULL,
-  `fusao` varchar(45) DEFAULT NULL,
-  `gestor` varchar(85) DEFAULT NULL,
+  `fusao` varchar(85) DEFAULT NULL,
   `obs` varchar(45) DEFAULT NULL,
   `editada` varchar(4) DEFAULT NULL,
   `data` date DEFAULT NULL,
-  `foto1` varchar(45) DEFAULT NULL,
-  `foto2` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`dc`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `cdo` varchar(45) DEFAULT NULL,
+  `teste` varchar(45) DEFAULT NULL,
+  `id_tec` varchar(45) DEFAULT NULL,
+  `nome_tec` varchar(105) DEFAULT NULL,
+  `equipe` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=200478993 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,4 +110,4 @@ CREATE TABLE `usuarios` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-14  9:02:56
+-- Dump completed on 2019-02-15 17:14:03

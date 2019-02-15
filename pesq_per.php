@@ -192,9 +192,9 @@ function loginsuccessfully()
         <th>CDO</th>
         <th>DATA</th>
         <th>ENDEREÇO</th>
-        <th>FACHADA</th>
+        
          <th>DB</th>
-         <th>GESTOR</th>
+         <th>TÉCNICO</th>
          <th>RELATÓRIO</th>
         <th>ANEXAR FOTOS</th>
         <th>PDF</th>
@@ -248,19 +248,19 @@ if (mysql_num_rows($sql) > 0)
 <td> <?php echo $dado ["cdo"];  ?></td>
 <td> <?php echo $dado ["data"];  ?></td>
 <td> <?php echo $dado ["logradouro"];  ?></td>
-<td> <?php echo $dado ["fachada"];  ?></td>
+
 <td> <?php echo $dado ["db"];  ?></td>
 
-<td> <?php echo $dado ["gestor"];  ?></td>
+<td> <?php echo $dado ["nome_tec"];  ?></td>
 
 
 
 
 <?php
-$fachada = $dado ["fachada"];
+$codigo = $dado ["cdo"];
 $logradouro = $dado ["logradouro"];
 
-$sql2 = mysql_query ("select  * from foto  where logradouro = '$logradouro' and fachada = '$fachada'" );
+$sql2 = mysql_query ("select  * from foto  where cdo = '$codigo'" );
 $row2 = mysql_num_rows($sql2);
  if  ($row2 > 0)
 {

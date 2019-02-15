@@ -5,8 +5,12 @@ include 'mpdf/mpdf.php';
 
  include "conn.php";
 
+
+ $celula =$_GET['celula'];
+  
+
 $select = mysql_query ("SELECT * FROM foto  
-							WHERE celula = '224 (CTJE)'
+							WHERE celula ='$celula'
 			");
 	$linha = mysql_fetch_array($select);//atribui o array recebido a variavel $linha
 	
@@ -14,7 +18,7 @@ $select = mysql_query ("SELECT * FROM foto
   
   $html2 .= "<h2>Relatorio teste FTTH - CELULA - $linha[celula]</span></h2> 
   	";
-  while ($linha = mysql_fetch_array($select)) 
+  do  
   {
     $html .= "<table border=1 >
     
@@ -34,7 +38,7 @@ $select = mysql_query ("SELECT * FROM foto
    
    
 </table>";
-  }
+  } while ($linha = mysql_fetch_array($select));
 
 	
 //==============================================================

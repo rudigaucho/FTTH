@@ -92,7 +92,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
           width: 900,
           legend: { position: 'none' },
           chart: {
-            title: 'Total de atividades por gestor ano <?php echo date('Y') ?>',
+            title: 'Total de atividades por gestor ano BACKLOG <?php echo date('Y') ?>',
             subtitle: '' },
           axes: {
             x: {
@@ -111,7 +111,42 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
 
 
 
+<script type="text/javascript" src="loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawStuff2);
 
+      function drawStuff2() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Move', 'Atividades'],
+          ['PAULO', 10],
+          ['GESTOR Y', 15],
+          ['GESTOR W', 13],
+          ['GESTOR F', 2],
+          ['GESTOR P', 7]
+         
+          
+        ]);
+
+        var options = {
+          width: 900,
+          legend: { position: 'none' },
+          chart: {
+            title: 'Total de atividades por gestor ano OS <?php echo date('Y') ?>',
+            subtitle: '' },
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Equipes'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "80%" }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('top_x_div2'));
+        // Convert the Classic options to Material options.
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      };
+    </script>
 
 
 
@@ -217,7 +252,10 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
           
         <li style="background:black;"><a href="cad_ba.php"><span class="glyphicon glyphicon-pencil"> CADASTRO </a></li>
           <li style="background:black;"><a href="pesq_per.php"><span class="glyphicon glyphicon-calendar"> BUSCA PERÍODO</a></li>
-          <li style="background:black;"><a href="pesq_ba.php"><span class="glyphicon glyphicon-search"> BUSCA CÉLULA</a></li>
+          <li style="background:black;"><a href="pesq_ba.php"><span class="glyphicon glyphicon-search"> BUSCA CDO</a></li>
+          </li>
+          <li style="background:black;"><a href="pesq_celula_final.php"><span class="glyphicon glyphicon-search"> BUSCA CELULA </a></li>
+          <li style="background:black;"><a href="pesq_col.php"><span class="glyphicon glyphicon-search"> BUSCA TÉCNICO </a></li>
           
                  
                 
@@ -266,6 +304,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
 
                 <div id="columnchart_material" style="width: 800px; height: 500px;"></div><br><br>
                 <div id="top_x_div" style="width: 800px; height: 600px;"></div><br><br><br>
+                <div id="top_x_div2" style="width: 800px; height: 600px;"></div><br><br><br>
                 
 
 

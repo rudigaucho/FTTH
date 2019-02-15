@@ -12,9 +12,9 @@ if(mysql_num_rows($qr) == 0){
    echo  '<option value="0">'.htmlentities('Não há localidades').'</option>';
     
 }else{
-   while($ln = mysql_fetch_assoc($qr)){
-      echo '<option value="'.$ln['fachada'].'">'.$ln['fachada'].'</option>';
-   }
+   do{
+      echo '<option value="'.$ln['codigo'].'">'.$ln['codigo'].'</option>';
+   }while($ln = mysql_fetch_assoc($qr));
 }
  
 ?>

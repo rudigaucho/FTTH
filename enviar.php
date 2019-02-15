@@ -186,7 +186,8 @@ function saidasuccessfully()
 
 
 
-
+$codigo =$_POST['cdo'];
+$teste =$_POST['teste'];
 $celula =$_POST['celula'];
 $logradouro =$_POST['logradouro'];
 $fachada =$_POST['fachada'];
@@ -271,16 +272,16 @@ $codigo = $dado["codigo"];
 
 
 
-$query = "insert into principal (celula,logradouro,fachada,db,gestor,ident,rede_ext,rede_inter,fusao,obs,data,editada,cdo)";
+$query = "insert into principal (celula,logradouro,db,ident,rede_ext,rede_inter,fusao,obs,data,editada,cdo,teste,id_tec,nome_tec,equipe)";
 
-$query.= "values ('$celula','$logradouro','$fachada','$db','$gestor','$ident','$rede_ext','$rede_int','$fusao','$obs',NOW(),'N','$codigo')";
+$query.= "values ('$celula','$logradouro','$db','$ident','$rede_ext','$rede_int','$fusao','$obs',NOW(),'N','$codigo','$teste','".$_SESSION['id']."','".$_SESSION['nome']."','".$_SESSION['equipe']."')";
 
 
-$query2 = "insert into foto (celula,cdo,logradouro,fachada,foto1,foto2)";
+$query2 = "insert into foto (celula,cdo,logradouro,foto1,foto2)";
 
-$query2.= "values ('$celula','$codigo','$logradouro','$fachada','$novo_nome','$novo_nome2')";
+$query2.= "values ('$celula','$codigo','$logradouro','$novo_nome','$novo_nome2')";
 
-$query3.="update celulas set encerrada='S' where logradouro='$logradouro' and fachada='$fachada';";
+$query3.="update celulas set encerrada='S' where codigo='$codigo';";
 
 
 $sql = mysql_query($query);

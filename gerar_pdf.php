@@ -38,6 +38,7 @@ $sql = mysql_query ("select * from principal where  id = '$id' " );
   $obs = $dado ["obs"]; 
   $data = $dado ["data"]; 
   $cdo = $dado ["cdo"]; 
+  $nome = $dado ["nome_tec"]; 
   
 
 
@@ -50,7 +51,7 @@ $sql = mysql_query ("select * from principal where  id = '$id' " );
   }
 
 
-  $sql2 = mysql_query ("select * from foto where  celula= '$celula' and logradouro='$logradouro' and fachada = '$fachada' " );
+  $sql2 = mysql_query ("select * from foto where  celula= '$celula' and cdo = '$cdo' " );
 
   while ($dado2 = mysql_fetch_assoc($sql2)){
 
@@ -78,10 +79,11 @@ $pagina =
  <img src="img/logo_serede.png" alt="" width="80" height="80"  > 
 <h3 style="text-align: center;">RELATÓRIO TESTE FTTH</h3>
 <h5>DATA: <strong> '.$data.'  </strong> </h5>
+<h5>DATA: <strong> '.$data.'  </strong> </h5>
 <h5>CELULA: <strong> '.$celula.'  </strong> </h5>
 <h5>CDO: '.$cdo.' </h5>
 <h5>ENDEREÇO: '.$logradouro.' </h5>
-<h5>FACHADA:'.$fachada.' </h5>
+
 <h5>DB:'.$db.' </h5>
 <h5>GESTOR:'.$gestor.'  </h5>
 <h5>IDENTIFICAÇÃO:'.$ident.' </h5>

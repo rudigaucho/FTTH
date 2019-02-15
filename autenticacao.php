@@ -65,7 +65,8 @@ if($row > 0  )
 	
 	while ($linha =  mysql_fetch_assoc($sql) 	)
 	{
-  $nome = $linha['nome'];
+	$nome = $linha['nome'];
+	$id = $linha['id'];
   $login = $linha['login'];
   $senha = $linha['senha'];
   $equipe = $linha['equipe'];
@@ -80,6 +81,7 @@ if($row > 0  )
 	session_start();
 	
 	$_SESSION['senha']=$senha;
+	$_SESSION['id']=$id;
 	$_SESSION['login'] =$login;
     $_SESSION['equipe'] =$equipe;
 	$_SESSION['nome'] =$nome;

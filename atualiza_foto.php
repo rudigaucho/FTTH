@@ -179,7 +179,7 @@ function saidasuccessfully()
 
 $id =$_POST['id'];
 $logradouro =$_POST['logradouro'];
-$fachada =$_POST['fachada'];
+$codigo =$_POST['cdo'];
 $celula =$_POST['celula'];
 
 
@@ -214,7 +214,7 @@ $celula =$_POST['celula'];
 
 
 
-$query = "update foto set foto1 = '$novo_nome',foto2 = '$novo_nome2' where celula = '$celula' and logradouro = '$logradouro' and fachada = '$fachada'";
+$query = "update foto set foto1 = '$novo_nome',foto2 = '$novo_nome2' where celula = '$celula' and cdo = '$codigo'";
 
 
 $query2 = "update principal set editada = 'S' where id = '$id' ";

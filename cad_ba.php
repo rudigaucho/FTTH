@@ -74,11 +74,11 @@ $(document).ready(function() {
 
 
          $("select[name=logradouro]").change(function(){
-            $("select[name=fachada]").html('<option value="0">Carregando...</option>');
+            $("select[name=cdo]").html('<option value="0">Carregando...</option>');
             $.post("logradouro.php",
                   {logradouro:$(this).val()},
                     function(valor){
-                      $("select[name=fachada]").html(valor);
+                      $("select[name=cdo]").html(valor);
                   }
                   )
           })
@@ -86,12 +86,12 @@ $(document).ready(function() {
 
 
 
-         $("select[name=fachada]").change(function(){
-            $("select[name=dc]").html('<option value="0">Carregando...</option>');
-            $.post("dc.php",
-                  {localidade:$(this).val()},
+         $("select[name=cdo]").change(function(){
+            $("select[name=fachada]").html('<option value="0">Carregando...</option>');
+            $.post("cdo.php",
+                  {cdo:$(this).val()},
                     function(valor){
-                      $("select[name=dc]").html(valor);
+                      $("select[name=fachada]").html(valor);
                   }
                   )
           })
@@ -194,6 +194,14 @@ height:70px;
       <li class="active" style="float:right"><a href="pesq_ba.php">Busca Célula</a></li>
       <li class="active" style="float:right"><a href="pesq_per.php">Busca Período</a></li>
       <li class="active" style="float:right"><a href="logout.php">Logout</a></li>
+      <?php if ($_SESSION["acesso"] == 'ADM'){ ?>
+      <li class="active" style="float:right"><a href="dashboard.php">Voltar</a></li>
+      <?php } else { ?>
+
+     
+      <li class="active" style="float:right"><a href="cad_ba.php">Voltar</a></li>
+      <?php } ?>
+      
       
       
       <li><a href="#"></a></li> 
@@ -216,36 +224,37 @@ height:70px;
   <div class="form-group">  
     <label for="email" >CELULA:</label> <br>
     <select class="form-control"  name="celula">
-       <option value="0" disabled="disabled">Escolha uma célula.</option>
+       <option value="0" disabled="disabled" required >Escolha uma célula.</option>
 
         <?php
      
           
          $sql = "SELECT * FROM celulas group by celula";
          $qr = mysql_query($sql) or die(mysql_error());
-         while($ln = mysql_fetch_assoc($qr)){
+         do {
             echo '<option value="'.$ln['celula'].'">'.$ln['celula'].'</option>';
-         }
+         }while($ln = mysql_fetch_assoc($qr))
       ?>
     </select>
         </div> 
 
         <div class="form-group">  
     <label for="email" >LOGRADOURO:</label> <br>
-    <select  name="logradouro">
-       <option value="0" disabled="disabled">Escolha uma logradouro</option>
+    <select  name="logradouro" required >
+       <option value="0" disabled="disabled" required>Escolha uma logradouro</option>
     </select>
         </div>
 
    
     <div class="form-group">
-          <label for="email" >FACHADA:</label> 
-       <select class="form-control" name="fachada">
+          <label for="email" >CDO:</label> 
+       <select class="form-control" name="cdo" required>
        <option value="0">Escolha a fachada</option>
         
         
     </select>
     </div>
+    
      
        <div class="form-group">
     <label for="cabo">DB MEDIDO:</label>
@@ -254,21 +263,21 @@ height:70px;
       </div>
       
   
-
+      <div class="form-group">
+    <label for="pwd">TESTE:</label>
+    <br><select  name="teste">
+    <option selected value="BACKLOG">BACKLOG</option>
+    <option value="OS">OS</option>
     
-    
-
-
-    
-
-<div class="form-group">
-    <label for="pwd">NOME GESTOR:</label>
-    <br><select  name="gestor">
-    <option selected value="PAULO">PAULO</option>
-    <option value="b">B</option>
-    <option value="c">C</option>
     </select>
     </div>
+    
+    
+
+
+    
+
+
 
 
 

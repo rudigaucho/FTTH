@@ -1,4 +1,4 @@
-﻿<?php include "conn.php"; ?>
+<?php include "conn.php"; ?>
 <?php 
 
 session_start();
@@ -95,7 +95,7 @@ function fnExcelReport() {
 <div class="container">
  
   
-  <form class="form-inline" role="form"  method="POST" action="pesq_ba.php"  style="margin-left:10%;">
+  <form class="form-inline" role="form"  method="POST" action="pesq_celula_final.php"  style="margin-left:10%;">
     <div class="form-group">
       <label for="email">Escolha a célula</label>
       <select class="form-control " id="celula" name="celula"  >
@@ -124,14 +124,10 @@ function fnExcelReport() {
     <thead>
       <tr >
       <th>CELULA</th>
-        <th>CDO</th>
-        <th>DATA</th>
-        <th>ENDEREÇO</th>
-       
-         <th>DB</th>
-         <th>TÉCNICO</th>
-         <th>RELATÓRIO</th>
-        <th>ANEXAR FOTOS</th>
+        <th>GESTOR</th>
+        
+        
+         
         <th>PDF</th>
       
        
@@ -144,9 +140,9 @@ if (isset($_POST ['submit']) )
 $busca = $_POST['celula'];
 
 
-$sql = mysql_query ("select * from principal where celula = '".$busca."' " );
+$sql = mysql_query ("select * from principal where celula = '".$busca."' group by celula " );
 
-$sql2 = mysql_query ("select * from principal where celula = '".$busca."'" );
+$sql2 = mysql_query ("select * from principal where celula = '".$busca."' group by celula" );
 
 
 
@@ -164,22 +160,17 @@ if (mysql_num_rows($sql) > 0)
     <tbody>
       <tr class="success">
       <td> <?php echo $dado ["celula"];  ?></td>
-<td> <?php echo $dado ["cdo"];  ?></td>
-<td> <?php echo $dado ["data"];  ?></td>
-<td> <?php echo $dado ["logradouro"];  ?></td>
+<td> <?php echo $dado ["gestor"];  ?></td>
 
-<td> <?php echo $dado ["db"];  ?></td>
-
-<td> <?php echo $dado ["nome_tec"];  ?></td>
 
 
 
 
 <?php
+$fachada = $dado ["fachada"];
+$logradouro = $dado ["logradouro"];
 
-$codigo = $dado ["cdo"];
-
-$sql2 = mysql_query ("select  * from foto  where cdo = '$codigo'" );
+$sql2 = mysql_query ("select  * from foto  where logradouro = '$logradouro' and fachada = '$fachada'" );
 $row2 = mysql_num_rows($sql2);
  if  ($row2 > 0)
 {
@@ -199,11 +190,9 @@ $cdo = $dado2["cdo"];
 }
 ?>
 
-<td> <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal<?php echo $dado ['id'];  ?>" >Visualizar</button> </td>
-<?php if ($dado ["editada"] == 'N'){ ?>
-<td> <a href="enviar_foto.php?id=<?php echo $dado ["id"]; ?>" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Anexar</a> </td>
-<?php } else { ?> <td> </td>  <?php } ?>
-<td> <a href="gerar_pdf.php?id=<?php echo $dado ["id"]; ?>" target="_blank" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Gerar Pdf</a></td>
+
+
+<td> <a href="pdf_total.php?celula=<?php echo $dado["celula"];?>" target="_blank" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Gerar Pdf</a></td>
 
 
 
