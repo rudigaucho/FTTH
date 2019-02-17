@@ -30,6 +30,7 @@ CREATE TABLE `celulas` (
   `codigo` varchar(45) DEFAULT NULL,
   `celula` varchar(85) DEFAULT NULL,
   `encerrada` varchar(4) DEFAULT NULL,
+  `total_enc` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -49,7 +50,7 @@ CREATE TABLE `foto` (
   `foto1` varchar(45) DEFAULT NULL,
   `foto2` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +78,7 @@ CREATE TABLE `principal` (
   `nome_tec` varchar(105) DEFAULT NULL,
   `equipe` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=200478993 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=200478999 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -110,4 +111,4 @@ CREATE TABLE `usuarios` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-15 17:14:03
+-- Dump completed on 2019-02-16 23:47:48

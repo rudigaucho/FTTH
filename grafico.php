@@ -6,7 +6,7 @@
 
 //-------------------------------------------  GRAFICO TOTAL ANUAL  ----------------------------------------------------------------
 
-$sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONTH(data) = '01' and year(data) = year(NOW())  and uf = 'PR'" );
+$sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM principal where  MONTH(data) = '01' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql1 )){
 
 
@@ -14,7 +14,7 @@ $sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONT
 
  } 
 
- $sql2 = mysql_query ("SELECT COUNT(*) AS FEV FROM atv_comp_principal where  MONTH(data) = '02' and year(data) = year(NOW())  and uf = 'PR'" );
+ $sql2 = mysql_query ("SELECT COUNT(*) AS FEV FROM principal where  MONTH(data) = '02' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql2 )){
 
 
@@ -23,7 +23,7 @@ $sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONT
  } 
 
 
- $sql3 = mysql_query ("SELECT COUNT(*) AS MAR FROM atv_comp_principal where  MONTH(data) = '03' and year(data) = year(NOW())  and uf = 'PR'" );
+ $sql3 = mysql_query ("SELECT COUNT(*) AS MAR FROM principal where  MONTH(data) = '03' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql3 )){
 
 
@@ -31,7 +31,7 @@ $sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONT
 
  } 
 
- $sql4 = mysql_query ("SELECT COUNT(*) AS ABR FROM atv_comp_principal where  MONTH(data) = '04' and year(data) = year(NOW())  and uf = 'PR'" );
+ $sql4 = mysql_query ("SELECT COUNT(*) AS ABR FROM principal where  MONTH(data) = '04' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql4 )){
 
 
@@ -40,7 +40,7 @@ $sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONT
  } 
 
 
- $sql5 = mysql_query ("SELECT COUNT(*) AS MAI FROM atv_comp_principal where  MONTH(data) = '05' and year(data) = year(NOW())  and uf = 'PR'" );
+ $sql5 = mysql_query ("SELECT COUNT(*) AS MAI FROM principal where  MONTH(data) = '05' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql5 )){
 
 
@@ -49,7 +49,7 @@ $sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONT
  } 
 
 
- $sql6 = mysql_query ("SELECT COUNT(*) AS JUN FROM atv_comp_principal where  MONTH(data) = '06' and year(data) = year(NOW())  and uf = 'PR'" );
+ $sql6 = mysql_query ("SELECT COUNT(*) AS JUN FROM principal where  MONTH(data) = '06' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql6 )){
 
 
@@ -57,7 +57,7 @@ $sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONT
 
  } 
 
- $sql7 = mysql_query ("SELECT COUNT(*) AS JUL FROM atv_comp_principal where  MONTH(data) = '07' and year(data) = year(NOW())  and uf = 'PR'" );
+ $sql7 = mysql_query ("SELECT COUNT(*) AS JUL FROM principal where  MONTH(data) = '07' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql7 )){
 
 
@@ -66,7 +66,7 @@ $sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONT
  } 
 
 
- $sql8 = mysql_query ("SELECT COUNT(*) AS AGO FROM atv_comp_principal where  MONTH(data) = '08' and year(data) = year(NOW())  and uf = 'PR'" );
+ $sql8 = mysql_query ("SELECT COUNT(*) AS AGO FROM principal where  MONTH(data) = '08' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql8 )){
 
 
@@ -74,7 +74,7 @@ $sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONT
 
  } 
 
- $sql9 = mysql_query ("SELECT COUNT(*) AS SETE FROM atv_comp_principal where  MONTH(data) = '09' and year(data) = year(NOW()) and uf = 'PR'" );
+ $sql9 = mysql_query ("SELECT COUNT(*) AS SETE FROM principal where  MONTH(data) = '09' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql9 )){
 
 
@@ -83,7 +83,7 @@ $sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONT
  } 
 
 
- $sql10 = mysql_query ("SELECT COUNT(*) AS OUTU FROM atv_comp_principal where  MONTH(data) = '10' and year(data) = year(NOW())  and uf = 'PR'" );
+ $sql10 = mysql_query ("SELECT COUNT(*) AS OUTU FROM principal where  MONTH(data) = '10' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql10 )){
 
 
@@ -92,7 +92,7 @@ $sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONT
  } 
 
 
-  $sql11 = mysql_query ("SELECT COUNT(*) AS NOV FROM atv_comp_principal where  MONTH(data) = '11' and year(data) = year(NOW())  and uf = 'PR'" );
+  $sql11 = mysql_query ("SELECT COUNT(*) AS NOV FROM principal where  MONTH(data) = '11' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql11 )){
 
 
@@ -100,7 +100,7 @@ $sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONT
 
  } 
 
-  $sql12 = mysql_query ("SELECT COUNT(*) AS DEZ FROM atv_comp_principal where  MONTH(data) = '12' and year(data) = year(NOW())  and uf = 'PR'" );
+  $sql12 = mysql_query ("SELECT COUNT(*) AS DEZ FROM principal where  MONTH(data) = '12' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql12 )){
 
 
@@ -108,148 +108,148 @@ $sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM atv_comp_principal where  MONT
 
  } 
 
-//---------------------------------------- GRÁFICO EQUIPES  -------------------------------------------------
+//---------------------------------------- GRÁFICO EQUIPES BACKLOG  -------------------------------------------------
 
- $sql13 = mysql_query ("select  count(*) as LDA_NT_1 from atv_comp_principal where equipe = 'LDA NT 1' and year(data) = year(NOW())" );
+ $sql13 = mysql_query ("select  count(*) as LOG_1 from principal where equipe = 'LOG 1' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql13 )){
 
 
-  $LDA_NT_1 = $dado["LDA_NT_1"];
+  $LOG_1 = $dado["LOG_1"];
 
  } 
 
- $sql14 = mysql_query ("select  count(*) as MQS_NT_1 from atv_comp_principal where equipe = 'MQS NT 1' and year(data) = year(NOW())" );
+ $sql14 = mysql_query ("select  count(*) as LOG_2 from principal where equipe = 'LOG 2' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql14 )){
 
 
-  $MQS_NT_1 = $dado["MQS_NT_1"];
+  $LOG_2 = $dado["LOG_2"];
 
  } 
 
-  $sql15 = mysql_query ("select  count(*) as WBZ_NT_1 from atv_comp_principal where equipe = 'WBZ NT 1' and year(data) = year(NOW())" );
+  $sql15 = mysql_query ("select  count(*) as LOG_3 from principal where equipe = 'LOG 3' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql15 )){
 
 
-  $WBZ_NT_1 = $dado["WBZ_NT_1"];
+  $LOG_3 = $dado["LOG_3"];
 
  } 
 
 
 
-$sql16 = mysql_query ("select  count(*) as LDA_1 from atv_comp_principal where equipe = 'LDA 1' and year(data) = year(NOW())" );
+$sql16 = mysql_query ("select  count(*) as LOG_4 from principal where equipe = 'LOG 4' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql16 )){
 
 
-  $LDA_1 = $dado["LDA_1"];
+  $LOG_4 = $dado["LOG_4"];
 
  }
 
 
-$sql17 = mysql_query ("select  count(*) as APU_1 from atv_comp_principal where equipe = 'APU 1' and year(data) = year(NOW())" );
+$sql17 = mysql_query ("select  count(*) as LOG_5 from principal where equipe = 'LOG 5' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql17 )){
 
 
-  $APU_1 = $dado["APU_1"];
+  $LOG_5 = $dado["LOG_5"];
 
  }
 
- $sql18 = mysql_query ("select  count(*) as JZO_1 from atv_comp_principal where equipe = 'JZO 1' and year(data) = year(NOW())" );
+ $sql18 = mysql_query ("select  count(*) as LOG_6 from principal where equipe = 'LOG 6' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql18 )){
 
 
-  $JZO_1 = $dado["JZO_1"];
+  $LOG_6 = $dado["LOG_6"];
 
  }
 
-  $sql19 = mysql_query ("select  count(*) as LDA_2 from atv_comp_principal where equipe = 'LDA 2' and year(data) = year(NOW())" );
+  $sql19 = mysql_query ("select  count(*) as LOG_7 from principal where equipe = 'LOG 7' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql19 )){
 
 
-  $LDA_2 = $dado["LDA_2"];
+  $LOG_7 = $dado["LOG_7"];
 
  }
-   $sql20 = mysql_query ("select  count(*) as WBZ_1 from atv_comp_principal where equipe = 'WBZ 1' and year(data) = year(NOW())" );
+   $sql20 = mysql_query ("select  count(*) as LOG_8 from principal where equipe = 'LOG 8' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql20 )){
 
 
-  $WBZ_1 = $dado["WBZ_1"];
+  $LOG_8 = $dado["LOG_8"];
 
  }
 
- $sql21 = mysql_query ("select  count(*) as WBA_1 from atv_comp_principal where equipe = 'WBA 1' and year(data) = year(NOW())" );
+ $sql21 = mysql_query ("select  count(*) as LOG_9 from principal where equipe = 'LOG 9' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql21 )){
 
 
-  $WBA_1 = $dado["WBA_1"];
+  $LOG_9 = $dado["LOG_9"];
 
  }
 
 
- $sql22 = mysql_query ("select  count(*) as IVP_ML from atv_comp_principal where equipe = 'IVP ML' and year(data) = year(NOW())" );
+ $sql22 = mysql_query ("select  count(*) as LOG_10 from principal where equipe = 'LOG 10' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql22 )){
 
 
-  $IVP_ML = $dado["IVP_ML"];
+  $LOG_10 = $dado["LOG_10"];
 
  }
 
-  $sql23 = mysql_query ("select  count(*) as LDA_CL from atv_comp_principal where equipe = 'LDA CL' and year(data) = year(NOW())" );
+  $sql23 = mysql_query ("select  count(*) as LOG_11 from principal where equipe = 'LOG 11' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql23 )){
 
 
-  $LDA_CL = $dado["LDA_CL"];
+  $LOG_11 = $dado["LOG_11"];
 
  }
 
-  $sql24 = mysql_query ("select  count(*) as WBZ_ML from atv_comp_principal where equipe = 'WBZ ML' and year(data) = year(NOW())" );
+  $sql24 = mysql_query ("select  count(*) as LOG_12 from principal where equipe = 'LOG 12' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql24 )){
 
 
-  $WBZ_ML = $dado["WBZ_ML"];
+  $LOG_12 = $dado["LOG_12"];
 
  }
 
 
 
+// ------------------------------------------ GRÁFICO EQUIPE OS----------------------------------------------------
 
 
 
 
-
-$sql25 = mysql_query ("select  count(*) as LDA_D from atv_comp_principal where equipe = 'LDA D' and year(data) = year(NOW())" );
+$sql25 = mysql_query ("select  count(*) as OS_1 from principal where equipe = 'OS 1' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql25 )){
 
 
-  $LDA_D = $dado["LDA_D"];
+  $OS_1 = $dado["OS_1"];
 
  }
 
 
- $sql26 = mysql_query ("select  count(*) as PGO_D from atv_comp_principal where equipe = 'PGO D' and year(data) = year(NOW())" );
+ $sql26 = mysql_query ("select  count(*) as OS_2 from principal where equipe = 'OS 2' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql26 )){
 
 
-  $PGO_D = $dado["PGO_D"];
+  $OS_2 = $dado["OS_2"];
 
  }
 
 
- // ----------------------------------------- GRÁFICO KM -----------------------------------------
 
 
-$sql27 = mysql_query ("SELECT sum(read_cabos) AS red_cab FROM atv_comp_principal where uf = 'PR'" );
+
+$sql27 = mysql_query ("select  count(*) as OS_3 from principal where equipe = 'OS 3' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql27)){
 
 
-  $red_cab = $dado["red_cab"];
+  $OS_3 = $dado["OS_3"];
 
  }
 
- $sql28 = mysql_query ("SELECT sum(lancamentos_cab) AS lancamentos_cab FROM atv_comp_principal where uf = 'PR'" );
+ $sql28 = mysql_query ("select  count(*) as OS_4 from principal where equipe = 'OS 4' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql28)){
 
 
-  $lancamentos_cab = $dado["lancamentos_cab"];
+  $OS_4 = $dado["OS_4"];
 
  }
 
@@ -257,11 +257,11 @@ $sql27 = mysql_query ("SELECT sum(read_cabos) AS red_cab FROM atv_comp_principal
  
 
 
-   $sql30 = mysql_query ("SELECT sum(vist_cabos) AS vist_cabos FROM atv_comp_principal where uf = 'PR'" );
+   $sql30 = mysql_query ("select  count(*) as OS_5 from principal where equipe = 'OS 5' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql30)){
 
 
-  $vist_cabos = $dado["vist_cabos"];
+  $OS_5 = $dado["OS_5"];
 
  }
 
@@ -271,49 +271,57 @@ $sql27 = mysql_query ("SELECT sum(read_cabos) AS red_cab FROM atv_comp_principal
 
 
 
-   $sql31 = mysql_query ("SELECT sum(poda_rocada) AS poda_rocada FROM atv_comp_principal where uf = 'PR'" );
+   $sql31 = mysql_query ("select  count(*) as OS_6 from principal where equipe = 'OS 6' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql31)){
 
 
-  $poda_rocada = $dado["poda_rocada"];
+  $OS_6 = $dado["OS_6"];
 
  }
 
- $sql32 = mysql_query ("SELECT sum(read_rede) AS read_rede FROM atv_comp_principal where uf = 'PR'" );
+ $sql32 = mysql_query ("select  count(*) as OS_7 from principal where equipe = 'OS 7' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql32)){
 
 
-  $read_rede = $dado["read_rede"];
+  $OS_7 = $dado["OS_7"];
 
  }
 
 
 
 
- //------------------------------------------------------------------------------------
+ 
 
-  $sql33 = mysql_query ("SELECT sum(postes_apru) AS postes_apru FROM atv_comp_principal where uf = 'PR'" );
+  $sql33 = mysql_query ("select  count(*) as OS_8 from principal where equipe = 'OS 8' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql33)){
 
 
-  $postes_apru = $dado["postes_apru"];
+  $OS_8 = $dado["OS_8"];
 
 }
 
 
-  $sql34 = mysql_query ("SELECT sum(poste_subs) AS poste_subs FROM atv_comp_principal where uf = 'PR'" );
+  $sql34 = mysql_query ("select  count(*) as OS_9 from principal where equipe = 'OS 9' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql34)){
 
 
-  $poste_subs = $dado["poste_subs"];
+  $OS_9 = $dado["OS_9"];
 
 }
 
-  $sql35 = mysql_query ("SELECT sum(postes_implant) AS postes_implant FROM atv_comp_principal where uf = 'PR'" );
+  $sql35 = mysql_query ("select  count(*) as OS_10 from principal where equipe = 'OS 10' and year(data) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql35)){
 
 
-  $postes_implant = $dado["postes_implant"];
+  $OS_10 = $dado["OS_10"];
+
+}
+
+$sql37 = mysql_query ("select  count(*) as OS_11 from principal where equipe = 'OS 11' and year(data) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql37)){
+
+
+  $OS_11 = $dado["OS_11"];
 
 }
 

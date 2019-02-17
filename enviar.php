@@ -281,7 +281,7 @@ $query2 = "insert into foto (celula,cdo,logradouro,foto1,foto2)";
 
 $query2.= "values ('$celula','$codigo','$logradouro','$novo_nome','$novo_nome2')";
 
-$query3.="update celulas set encerrada='S' where codigo='$codigo';";
+$query3.="update celulas set encerrada='S', total_enc='1' where codigo='$codigo';";
 
 
 $sql = mysql_query($query);

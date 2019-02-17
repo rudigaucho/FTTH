@@ -44,18 +44,18 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Mês', 'Teste', '', ''],
-          ['JAN', 22, 0, 0],
-          ['FEV', 37,0, 0],
-          ['MAR', 15, 0, 0],
-          ['ABR', 50, 0, 0],
-          ['MAI', 42, 0, 0],
-          ['JUN', 88, 0, 0],
-          ['JUL', 29, 0, 0],
-          ['AGO', 11, 0, 0],
-          ['SET', 14, 0, 0],
-          ['OUT', 65, 0, 0],
-          ['NOV', 12, 0, 0],
-          ['DEZ', 12, 0, 0]
+          ['JAN', <?php echo $JAN ?>, 0, 0],
+          ['FEV', <?php echo $FEV ?>,0, 0],
+          ['MAR', <?php echo $MAR ?>, 0, 0],
+          ['ABR', <?php echo $ABR ?>, 0, 0],
+          ['MAI', <?php echo $MAI ?>, 0, 0],
+          ['JUN', <?php echo $JUN ?>, 0, 0],
+          ['JUL', <?php echo $JUL ?>, 0, 0],
+          ['AGO', <?php echo $AGO ?>, 0, 0],
+          ['SET', <?php echo $SET ?>, 0, 0],
+          ['OUT', <?php echo $OUT ?>, 0, 0],
+          ['NOV', <?php echo $NOV ?>, 0, 0],
+          ['DEZ', <?php echo $DEZ ?>, 0, 0]
         ]);
 
         var options = {
@@ -79,11 +79,20 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
       function drawStuff() {
         var data = new google.visualization.arrayToDataTable([
           ['Move', 'Atividades'],
-          ['PAULO', 10],
-          ['GESTOR Y', 15],
-          ['GESTOR W', 13],
-          ['GESTOR F', 2],
-          ['GESTOR P', 7]
+          ['LOG 1', <?php echo $LOG_1 ?>],
+          ['LOG 2', <?php echo $LOG_2 ?>],
+          ['LOG 3', <?php echo $LOG_3 ?>],
+          ['LOG 4', <?php echo $LOG_4 ?>],
+          ['LOG 5', <?php echo $LOG_5 ?>],
+          ['LOG 6', <?php echo $LOG_6 ?>],
+          ['LOG 7', <?php echo $LOG_7 ?>],
+          ['LOG 8', <?php echo $LOG_8 ?>],
+          ['LOG 9', <?php echo $LOG_9 ?>],
+          ['LOG 10', <?php echo $LOG_10 ?>],
+          ['LOG 11', <?php echo $LOG_11 ?>],
+          ['LOG 12', <?php echo $LOG_12 ?>]
+          
+
          
           
         ]);
@@ -119,11 +128,19 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
       function drawStuff2() {
         var data = new google.visualization.arrayToDataTable([
           ['Move', 'Atividades'],
-          ['PAULO', 10],
-          ['GESTOR Y', 15],
-          ['GESTOR W', 13],
-          ['GESTOR F', 2],
-          ['GESTOR P', 7]
+          ['OS 1', <?php echo $OS_1 ?>],
+          ['OS 2', <?php echo $OS_2 ?>],
+          ['OS 3', <?php echo $OS_3 ?>],
+          ['OS 4', <?php echo $OS_4 ?>],
+          ['OS 5', <?php echo $OS_5 ?>],
+          ['OS 6', <?php echo $OS_6 ?>],
+          ['OS 7', <?php echo $OS_7 ?>],
+          ['OS 8', <?php echo $OS_8 ?>],
+          ['OS 9', <?php echo $OS_9 ?>],
+          ['OS 10', <?php echo $OS_10 ?>],
+          ['OS 11', <?php echo $OS_11 ?>]
+          
+          
          
           
         ]);
@@ -221,8 +238,8 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
 
         
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <a class="navbar-brand" href="#" > <?php // echo $_SESSION["nome"]?></a>
+            <ul  class="nav navbar-right top-nav">
+                <a  class="navbar-brand" href="#" > <?php echo $_SESSION["nome"]?></a>
               
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>   <b class="caret"></b></a>
@@ -306,6 +323,65 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
                 <div id="top_x_div" style="width: 800px; height: 600px;"></div><br><br><br>
                 <div id="top_x_div2" style="width: 800px; height: 600px;"></div><br><br><br>
                 
+
+                <?php 
+
+$sql = mysql_query ("select  celula,count(*) as total,sum(total_enc) as encerradas from CELULAS  group by celula" );
+
+
+
+
+$row = mysql_num_rows($sql);
+
+
+if (mysql_num_rows($sql) > 0){
+
+ 
+
+?>
+
+
+                <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">CÉLULA</th>
+      <th scope="col">TOTAL</th>
+      <th scope="col">ENCERRADAS</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+
+  <?php  while ($dado = mysql_fetch_assoc($sql)){
+    $dado2 = mysql_fetch_assoc($sql2); ?>
+    <tr>
+      
+      <td><?php echo $dado ["celula"];  ?></td>
+      <td><?php echo $dado ["total"]; ?></td>
+      <td><?php echo $dado ["encerradas"]; ?></td>
+      
+    </tr>
+    <?php }} ?> 
+  </tbody>
+</table>
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

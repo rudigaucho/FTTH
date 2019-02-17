@@ -188,7 +188,7 @@ height:70px;
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Serede</a>
+      <a class="navbar-brand" href="#"><?php echo $_SESSION["nome"] ;?></a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active" style="float:right"><a href="pesq_ba.php">Busca Célula</a></li>
@@ -385,94 +385,3 @@ height:70px;
 </html>
 
 
-<script>
-  
-$(function() {
-
-/*var  availableTags = [
-
-"ajskkdp",
-"iiisosoa",
-"ooiismsm",
-"aassdddd",
-"ooedmmmd",
-"iisoosoos"
-];
-
-$( "#cabo" ).autocomplete({
-  source: availableTags
-
-  });
-*/
-
-$.getJSON("listar_cabos.php", function(data){
-//console.log(data);
-var retorno = [];
-
-
-$(data).each( function (key, value){
-
- // console.log(value.cabo);
-
- retorno.push(value.cabo);
-
-
-});
-$("#cabo").autocomplete({
-  source: retorno ,
-
- 
-
-  });
-
-
-
-
-  });
-});
-
-
-
-
-
-
-</script>
-
-<!--
-<script>
-  
-$(function() {
-
-
-
-$.getJSON("listar_cabos.php", function(data2){
-//console.log(data);
-var retorno2 = [];
-
-
-$(data2).each( function (key2, value2){
-
- // console.log(value.cabo);
-
- retorno2.push(value2.trecho);
-
-
-});
-$("#localidade").autocomplete({
-  source: retorno2
-
-  });
-
-
-
-
-  });
-});
-
-
-
-
-
-
-</script>
--->
