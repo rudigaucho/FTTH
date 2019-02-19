@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `ftth2` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `ftth2`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: ftth2
@@ -18,6 +16,25 @@ USE `ftth2`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `cdoia`
+--
+
+DROP TABLE IF EXISTS `cdoia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cdoia` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `celula` varchar(45) DEFAULT NULL,
+  `cdoi` varchar(45) DEFAULT NULL,
+  `cdoia` varchar(45) DEFAULT NULL,
+  `foto` varchar(45) DEFAULT NULL,
+  `id_col` varchar(45) DEFAULT NULL,
+  `data` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `celulas`
 --
 
@@ -31,6 +48,7 @@ CREATE TABLE `celulas` (
   `celula` varchar(85) DEFAULT NULL,
   `encerrada` varchar(4) DEFAULT NULL,
   `total_enc` int(11) DEFAULT NULL,
+  `encerrada_cdoi` varchar(4) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -50,7 +68,7 @@ CREATE TABLE `foto` (
   `foto1` varchar(45) DEFAULT NULL,
   `foto2` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -78,7 +96,7 @@ CREATE TABLE `principal` (
   `nome_tec` varchar(105) DEFAULT NULL,
   `equipe` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=200478999 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,4 +129,4 @@ CREATE TABLE `usuarios` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-02-16 23:47:48
+-- Dump completed on 2019-02-19  0:35:12

@@ -263,10 +263,11 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
                   
                    <li class="dropdown">
 
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-scale">  MENU</span>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-scale"> CDOE/I</span>
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           
+        
         <li style="background:black;"><a href="cad_ba.php"><span class="glyphicon glyphicon-pencil"> CADASTRO </a></li>
           <li style="background:black;"><a href="pesq_per.php"><span class="glyphicon glyphicon-calendar"> BUSCA PERÍODO</a></li>
           <li style="background:black;"><a href="pesq_ba.php"><span class="glyphicon glyphicon-search"> BUSCA CDO</a></li>
@@ -278,8 +279,36 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
                 
         
         </ul>
+
+
+        
+
+        
       </li>
-      
+      <li class="dropdown">
+
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-scale"> CDOIA </span>
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          
+        
+        <li style="background:black;"><a href="cad_ba.php"><span class="glyphicon glyphicon-pencil"> CADASTRO </a></li>
+          <li style="background:black;"><a href="pesq_per.php"><span class="glyphicon glyphicon-calendar"> BUSCA PERÍODO</a></li>
+          <li style="background:black;"><a href="pesq_ba.php"><span class="glyphicon glyphicon-search"> BUSCA CDOI</a></li>
+          </li>
+          
+          <li style="background:black;"><a href="pesq_col.php"><span class="glyphicon glyphicon-search"> BUSCA TÉCNICO </a></li>
+          
+                 
+                
+        
+        </ul>
+
+
+        
+
+        
+      </li>
       
      
 
@@ -291,6 +320,9 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
 
 
             </div>
+
+
+            
             <!-- /.navbar-collapse -->
         </nav>
 

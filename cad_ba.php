@@ -199,7 +199,7 @@ height:70px;
       <?php } else { ?>
 
      
-      <li class="active" style="float:right"><a href="cad_ba.php">Voltar</a></li>
+      
       <?php } ?>
       
       

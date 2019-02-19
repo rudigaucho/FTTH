@@ -1,7 +1,7 @@
 <script type="text/javascript">
 function saidasuccessfully()
 {
-	setTimeout("window.location='cad_ba.php'",3000);
+	setTimeout("window.location='cad_ba.php'",4000);
 	
 	
 }
@@ -41,8 +41,8 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
 //  ------------------------------------------ VERIFICACAO TAMANHO FOTOS ------------------------------------------------------- 
 
 
-            $tamanho1 =$_FILES['foto1']['size'];
-            $tamanho2 =$_FILES['foto2']['size'];
+            $tamanho1 = $_FILES['foto1']['size'];
+            $tamanho2 = $_FILES['foto2']['size'];
          
 
 
@@ -112,14 +112,16 @@ if (!in_array($type,$permite) || !in_array($type2,$permite ) )
 {
 
 echo "EXTENSÃO DA IMAGEM INVALIDA, SUA IMAGEM DEVE SER NO FORMATO JPEG,JPG OU PNG!";
-	echo "<script>saidasuccessfully()</script>";
+   echo "<script>saidasuccessfully()</script>";
+   break;
 }
 
-else if ( ($tamanho1 > 2000000) || ($tamanho2 > 2000000)  )
+if ( ($tamanho1 > 2000000) || ($tamanho2 > 2000000)  )
 {
 
 echo "TAMANHO MÁXIMO DA IMAGEM 2MB!";
   echo "<script>saidasuccessfully()</script>";
+  break;
 }
 else
 {
