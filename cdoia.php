@@ -5,7 +5,7 @@
 
 $cdoi = $_POST['cdoi'];
  
-$sql = "SELECT * FROM celulas WHERE celula = '$cdoi' and codigo  like 'CDOI%'";
+$sql = "SELECT * FROM celulas WHERE celula = '$cdoi' and codigo  like 'CDOI%' and encerrada_cdoi = 'N'";
 $qr = mysql_query($sql) or die(mysql_error());
  
 if(mysql_num_rows($qr) == 0){

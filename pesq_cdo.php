@@ -1,4 +1,4 @@
-﻿<?php include "conn.php"; ?>
+<?php include "conn.php"; ?>
 <?php 
 
 session_start();
@@ -95,20 +95,20 @@ function fnExcelReport() {
 <div class="container">
  
   
-  <form class="form-inline" role="form"  method="POST" action="pesq_ba.php"  style="margin-left:10%;">
+  <form class="form-inline" role="form"  method="POST" action="pesq_cdo.php"  style="margin-left:10%;">
     <div class="form-group">
-      <label for="email">Escolha a célula</label>
-      <select class="form-control " id="celula" name="celula"  >
+      <label for="email">Escolha a CDOI</label>
+      <select class="form-control " id="cdoi" name="cdoi"  >
 
 
     
         <?php
        
           
-         $sql = "SELECT * FROM principal GROUP BY celula ASC";
+         $sql = "SELECT * FROM cdoia group by cdoi";
          $qr = mysql_query($sql) or die(mysql_error());
          while($ln = mysql_fetch_assoc($qr)){
-            echo '<option value="'.$ln['celula'].'">'.$ln['celula'].'</option>';
+            echo '<option value="'.$ln['cdoi'].'">'.$ln['cdoi'].'</option>';
          }
       ?>
 </select>
@@ -124,14 +124,13 @@ function fnExcelReport() {
     <thead>
       <tr >
       <th>CELULA</th>
-        <th>CDO</th>
+        <th>CDOI</th>
+        <th>CDOIA</th>
+        <th>ID TÉC</th>
         <th>DATA</th>
-        <th>ENDEREÇO</th>
-       
-         <th>DB</th>
-         <th>TÉCNICO</th>
-         <th>RELATÓRIO</th>
-        <th>ANEXAR FOTOS</th>
+        
+        
+         
         <th>PDF</th>
       
        
@@ -141,19 +140,19 @@ function fnExcelReport() {
   <?php
 if (isset($_POST ['submit']) )
 {
-$busca = $_POST['celula'];
+$busca = $_POST['cdoi'];
 
 
-$sql = mysql_query ("select * from principal where celula = '".$busca."'" );
+$sql = mysql_query ("select * from cdoia where cdoi = '".$busca."' group by cdoia" );
 
-$sql2 = mysql_query ("select * from principal where celula = '".$busca."'" );
+
 
 
 
 
 
 $row = mysql_num_rows($sql);
-$row2 = mysql_num_rows($sql2);
+
 
 if (mysql_num_rows($sql) > 0)
 
@@ -163,47 +162,21 @@ if (mysql_num_rows($sql) > 0)
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <tbody>
       <tr class="success">
-      <td> <?php echo $dado ["celula"];  ?></td>
-<td> <?php echo $dado ["cdo"];  ?></td>
+<td> <?php echo $dado ["celula"];  ?></td>
+<td> <?php echo $dado ["cdoi"];  ?></td>
+<td> <?php echo $dado ["cdoia"];  ?></td>
+<td> <?php echo $dado ["id_col"];  ?></td>
 <td> <?php echo $dado ["data"];  ?></td>
-<td> <?php echo $dado ["logradouro"];  ?></td>
-
-<td> <?php echo $dado ["db"];  ?></td>
-
-<td> <?php echo $dado ["nome_tec"];  ?></td>
 
 
 
 
-<?php
-
-$codigo = $dado ["cdo"];
-
-$sql2 = mysql_query ("select  * from foto  where cdo = '$codigo'" );
-$row2 = mysql_num_rows($sql2);
- if  ($row2 > 0)
-{
 
 
-while ($dado2 = mysql_fetch_assoc($sql2)){
 
-$foto1 = $dado2["foto1"];  
-$foto2 = $dado2["foto2"];  
-$cdo = $dado2["cdo"];  
 
-}
-   
-  
 
-  
-}
-?>
-
-<td> <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal<?php echo $dado ['id'];  ?>" >Visualizar</button> </td>
-<?php if ($dado ["editada"] == 'N'){ ?>
-<td> <a href="enviar_foto.php?id=<?php echo $dado ["id"]; ?>" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Anexar</a> </td>
-<?php } else { ?> <td> </td>  <?php } ?>
-<td> <a href="gerar_pdf.php?id=<?php echo $dado ["id"]; ?>" target="_blank" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Gerar Pdf</a></td>
+<td> <a href="pdf_total.php?celula=<?php echo $dado["celula"];?>" target="_blank" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Gerar Pdf</a></td>
 
 
 
@@ -227,7 +200,6 @@ $cdo = $dado2["cdo"];
           <p>REDE EXTERNA: <strong><?php echo $dado ["rede_ext"];  ?></strong></p>
           <p>REDE INTERNA: <strong><?php echo $dado ["rede_interna"];  ?></strong></p>
           <p>FUSÃO: <strong><?php echo $dado ["fusao"];  ?></strong></p>
-          <p>NÚMERO DE FUSÕES: <strong><?php echo $dado ["n_fusao"];  ?></strong></p>
           <p>OBS: <strong><?php echo $dado ["obs"];  ?></strong></p>
           <h4 class="modal-title">FOTO ANTES<h4>
         </div>

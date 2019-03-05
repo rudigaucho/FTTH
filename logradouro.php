@@ -3,9 +3,13 @@
  
  include "conn.php";
 
+
 $logradouro = $_POST['logradouro'];
+
+
+
  
-$sql = "SELECT * FROM celulas WHERE logradouro = '$logradouro' and encerrada = 'N' order by logradouro";
+$sql = "SELECT * FROM celulas WHERE logradouro = '$logradouro' and encerrada = 'N' and codigo like 'CDOE%' order by logradouro";
 $qr = mysql_query($sql) or die(mysql_error());
  
 if(mysql_num_rows($qr) == 0){

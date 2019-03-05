@@ -6,34 +6,37 @@ include 'mpdf/mpdf.php';
  include "conn.php";
 
 
- $celula =$_GET['celula'];
+ $cdoia =$_GET['cdoia'];
   
 
-$select = mysql_query ("SELECT * FROM foto  
-							WHERE celula ='$celula'
+$select = mysql_query ("SELECT * FROM cdoia  
+							WHERE cdoia ='$cdoia'
 			");
 	$linha = mysql_fetch_array($select);//atribui o array recebido a variavel $linha
 	
 	$row = mysql_num_rows($select);
   
-  $html2 .= "<h2>Relatorio teste FTTH - CELULA - $linha[celula]</span></h2> 
+  $html2 .= "<h2>Relatorio teste FTTH - CDOI - $linha[cdoi]</span></h2> 
   	";
   do  
   {
-    $html .= "<table border=1 >
+    $html .= "<table border=1  style='margin-left:80px;'>
     
-    <tr>
-    
-    </tr>
     <tr>
      
       
     </tr>	
     <tr>
-    <td> <img src='fotos/$linha[foto1]' width='300' height='300'><br> $linha[cdo]</td>
-    <td> <img src='fotos/$linha[foto2]' width='300' height='300'><br> $linha[cdo] </td>
+     
+      
+    </tr>	
+    <tr >
+    <td> <img src='fotos/$linha[foto]' width='500' height='300' ><br> $linha[cdoia]</td>
+    
+    
     </tr>
-
+    
+    
     
    
    

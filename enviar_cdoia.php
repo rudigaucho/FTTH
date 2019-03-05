@@ -107,6 +107,7 @@ $Tmpname = $Fotos["tmp_name"][$i];
 if($Tamanho > 2000000 ) 
 {
   echo "<br/>Erro ao envia a foto de número " . $Conta . " O arquivo deve ser menor que 2MB.";
+  break;
 }
 
 else
@@ -131,6 +132,11 @@ if(move_uploaded_file($Tmpname, $Caminho))
                     $sql1 = mysql_query($query1);
 
 
+    $query2 = "update celulas set encerrada_cdoi = 'S' where codigo = '$cdoi'";
+
+    $sql2 = mysql_query($query2);
+
+
 echo "Foto #" . ($i+1) . " enviada.<br/>"; 
 
 // Faz contagem de enviada com sucesso 
@@ -140,6 +146,7 @@ else // Erro no envio
 { 
 // $i+1 porque $i começa em zero 
 echo "Não foi possível enviar a foto #" . ($i+1) . "<br/>"; 
+break;
 } 
 } 
 } 
@@ -152,10 +159,11 @@ echo "<br/>Foi(am) enviada(s) " . $Conta . " foto(s).";
 else // Nenhuma imagem enviada, faz alguma ação 
 { 
 echo "Você não enviou fotos!"; 
+break;
 }
 
 
-if($sql1)
+if($sql1 && $sql2)
 {
   
   

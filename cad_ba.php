@@ -68,6 +68,8 @@ $(document).ready(function() {
                      $("select[name=logradouro]").html(valor);
                   }
                   )
+
+                 
              
          })
 
@@ -81,7 +83,14 @@ $(document).ready(function() {
                       $("select[name=cdo]").html(valor);
                   }
                   )
+
+
           })
+
+
+          
+
+          
 
 
 
@@ -191,6 +200,7 @@ height:70px;
       <a class="navbar-brand" href="#"><?php echo $_SESSION["nome"] ;?></a>
     </div>
     <ul class="nav navbar-nav">
+     <li class="active" style="float:right"><a href="cad_cdoia.php">Cadastro CDOIA</a></li>
       <li class="active" style="float:right"><a href="pesq_ba.php">Busca Célula</a></li>
       <li class="active" style="float:right"><a href="pesq_per.php">Busca Período</a></li>
       <li class="active" style="float:right"><a href="logout.php">Logout</a></li>
@@ -229,7 +239,7 @@ height:70px;
         <?php
      
           
-         $sql = "SELECT * FROM celulas group by celula";
+         $sql = "SELECT * FROM celulas  group by celula";
          $qr = mysql_query($sql) or die(mysql_error());
          do {
             echo '<option value="'.$ln['celula'].'">'.$ln['celula'].'</option>';
@@ -319,6 +329,12 @@ height:70px;
     </select>
     </div>
     </fieldset><br>
+
+    <div class="form-group">
+    <label for="cabo">NÚMERO DE FUSÕES:</label>
+      <input type="text" class="form-control"  name="n_fusao" required >
+       
+      </div>
      
      
 

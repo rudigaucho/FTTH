@@ -292,12 +292,12 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
         <ul class="dropdown-menu">
           
         
-        <li style="background:black;"><a href="cad_ba.php"><span class="glyphicon glyphicon-pencil"> CADASTRO </a></li>
-          <li style="background:black;"><a href="pesq_per.php"><span class="glyphicon glyphicon-calendar"> BUSCA PERÍODO</a></li>
-          <li style="background:black;"><a href="pesq_ba.php"><span class="glyphicon glyphicon-search"> BUSCA CDOI</a></li>
+        <li style="background:black;"><a href="cad_cdoia.php"><span class="glyphicon glyphicon-pencil"> CADASTRO </a></li>
+          <li style="background:black;"><a href="pesq_per_cdoi.php"><span class="glyphicon glyphicon-calendar"> BUSCA PERÍODO</a></li>
+          <li style="background:black;"><a href="pesq_cdo.php"><span class="glyphicon glyphicon-search"> BUSCA CDOI</a></li>
           </li>
           
-          <li style="background:black;"><a href="pesq_col.php"><span class="glyphicon glyphicon-search"> BUSCA TÉCNICO </a></li>
+         
           
                  
                 

@@ -201,6 +201,7 @@ $rede_ext =$_POST['rede_ext'];
 $gestor =$_POST['gestor'];
 $rede_int =$_POST['rede_int'];
 $fusao =$_POST['fusao'];
+$n_fusao =$_POST['n_fusao'];
 $obs =$_POST['obs'];
 
 
@@ -274,9 +275,9 @@ $codigo = $dado["codigo"];
 
 
 
-$query = "insert into principal (celula,logradouro,db,ident,rede_ext,rede_inter,fusao,obs,data,editada,cdo,teste,id_tec,nome_tec,equipe)";
+$query = "insert into principal (celula,logradouro,db,ident,rede_ext,rede_inter,fusao,obs,data,editada,cdo,teste,id_tec,nome_tec,equipe,n_fusao)";
 
-$query.= "values ('$celula','$logradouro','$db','$ident','$rede_ext','$rede_int','$fusao','$obs',NOW(),'N','$codigo','$teste','".$_SESSION['id']."','".$_SESSION['nome']."','".$_SESSION['equipe']."')";
+$query.= "values ('$celula','$logradouro','$db','$ident','$rede_ext','$rede_int','$fusao','$obs',NOW(),'N','$codigo','$teste','".$_SESSION['id']."','".$_SESSION['nome']."','".$_SESSION['equipe']."','$n_fusao')";
 
 
 $query2 = "insert into foto (celula,cdo,logradouro,foto1,foto2)";

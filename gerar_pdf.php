@@ -39,6 +39,7 @@ $sql = mysql_query ("select * from principal where  id = '$id' " );
   $data = $dado ["data"]; 
   $cdo = $dado ["cdo"]; 
   $nome = $dado ["nome_tec"]; 
+  $n_fusao = $dado ["n_fusao"]; 
   
 
 
@@ -90,6 +91,7 @@ $pagina =
 <h5>REDE EXTERNA:'.$rede_ext.' </h5>
 <h5>REDE INTERNA:'.$rede_inter.' </h5>
 <h5>FUSÃO:'.$fusao.'  </h5>
+<h5>NÚMERO DE FUSÕES:'.$n_fusao.'  </h5>
 
 
 <h5>OBS: '.$obs.'</h5>
