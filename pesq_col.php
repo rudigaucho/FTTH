@@ -84,13 +84,16 @@ function loginsuccessfully()
       <li class="active" style="float:right"> <a href="#" id="test" onClick="javascript:fnExcelReport();">Gerar excel</a></li>
       <li class="active" style="float:right"><a href="logout.php">Logout</a></li>
 
-      <?php if ($_SESSION["acesso"] == 'ADM'){ ?>
-      <li class="active" style="float:right"><a href="dashboard.php">Voltar</a></li>
-      <?php } else { ?>
+      
 
-     
-      <li class="active" style="float:right"><a href="cad_ba.php">Voltar</a></li>
-      <?php } ?>
+      <?php if($_SESSION["acesso"] == 'ADM' ){?>   
+        <li class="active" style="float:right"><a href="dashboard.php">Voltar</a></li>
+      
+      <?php } else { ?>
+      <li class="active" style="float:right"><a href="cadastro.php">Voltar</a></li>
+
+      <?php }  ?>
+ 
       
       
       <li><a href="#"></a></li> 
@@ -101,82 +104,7 @@ function loginsuccessfully()
 
 
   <form class="form-inline" role="form"   method="POST" action="pesq_col.php" style="margin-left:10%;">
-    <div class="form-group">
-   
-
-    </div>
-     
-    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> 
-
-<!--Font Awesome (added because you use icons in your prepend/append)-->
-<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
-
-<!-- Inline CSS based on choices in "Settings" tab -->
-<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;} </style>
-
-<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
-<div style="float:left;" class="bootstrap-iso">
-  
-  <div class="row">
-   <label  for="data">
-      Período
-      </label>
     
-     <div class="form-group ">
-      
-      <div class="col-sm-10">
-       <div class="input-group">
-        <div class="input-group-addon">
-         <i class="fa fa-calendar">
-         </i>
-        </div>
-        <input class="form-control" id="date" name="date" placeholder="DE" type="text"  autocomplete="off" required/>
-        <input class="form-control" id="date2" name="date2" placeholder="ATÉ"  autocomplete="off" type="text" required/>
-       </div>
-      </div>
-     </div>
-    
-  
-   
-  </div>
-
-</div>
-
-
-<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
-<!-- Include jQuery -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-<!-- Include Date Range Picker -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-
-<script>
- $(document).ready(function(){
-  var date_input=$('input[name="date"]'); //our date input has the name "date"
-  var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-  date_input.datepicker({
-   format: 'yyyy-mm-dd',
-   container: container,
-   todayHighlight: true,
-   autoclose: true,
-  })
- })
-</script>
-<script>
- $(document).ready(function(){
-  var date_input=$('input[name="date2"]'); //our date input has the name "date"
-  var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-  date_input.datepicker({
-   format: 'yyyy-mm-dd',
-   container: container,
-   todayHighlight: true,
-   autoclose: true,
-   orientation: 'top',
-  })
- })
-</script>
 <br>
 <div class="form-group">
       <label for="email">  ID COLABORADOR  </label>
@@ -192,16 +120,23 @@ function loginsuccessfully()
   <table class="table table-hover" id="myTable">
     <thead>
       <tr >
-       
-        <th>CELULA</th>
-        <th>CDO</th>
-        <th>DATA</th>
+      <th>BA</th>
+      <th>CELULA</th>
+      <th>CDOE/I</th>
+      <th>TIPO2</th>
+      <th>LOCALIDADE</th>
         <th>ENDEREÇO</th>
+        <th>EQUIPE</th>
+        <th>NOME</th>
+        <th>DATA ATIVIDADE</th>
+        <th>ATIVIDADE</th>
         
-         <th>DB</th>
-         <th>TÉCNICO</th>
+         <th>CAUSA</th>
+         <th>SUB</th>
+         <th>AÇÃO</th>
+         <th>TIPO</th>
+        
          <th>RELATÓRIO</th>
-        
         <th>PDF</th>
          
         
@@ -225,10 +160,10 @@ $id = $_POST['id'];
 
 
 
-$sql = mysql_query ("select  * from principal  where data BETWEEN   '$data' and '$data2' and id_tec = '$id'" );
-// $sql2 = mysql_query ("select count(*) as conta  from relatorio where gra = '".$busca."' and data BETWEEN  '$data 00:00:00' and '$data 23:59:00' order by data desc   " );
-$sql3 =  mysql_query ("select  count(*) as conta from principal  where data BETWEEN   '$data' and '$data2' and id_tec = '$id'" );
 
+$sql = mysql_query ("select  * from principal  where tecnico = '$id'" );
+// $sql2 = mysql_query ("select count(*) as conta  from relatorio where gra = '".$busca."' and data BETWEEN  '$data 00:00:00' and '$data 23:59:00' order by data desc   " );
+$sql3 =  mysql_query ("select  * from principal  where tecnico = '$id'" );
  
 
 
@@ -248,53 +183,41 @@ if (mysql_num_rows($sql) > 0)
     <tbody>
       <tr class="success">
 
-      
-      
-<td> <?php echo $dado ["celula"];  ?></td>
-<td> <?php echo $dado ["cdo"];  ?></td>
-<td> <?php echo $dado ["data"];  ?></td>
-<td> <?php echo $dado ["logradouro"];  ?></td>
+      <td> <?php echo $dado ["ba"];  ?></td>
+      <td> <?php echo $dado ["celula"];  ?></td>
+      <td> <?php echo $dado ["cdoe_i"];  ?></td>
+      <td> <?php echo $dado ["tipo2"];  ?></td>
+      <td> <?php echo $dado ["localidade"];  ?></td>
+<td> <?php echo $dado ["endereco"];  ?></td>
+<td> <?php echo $dado ["equipe"];  ?></td>
+<td> <?php echo $dado ["nome"];  ?></td>
+<td> <?php echo $dado ["data_atv"];  ?></td>
+<td> <?php echo $dado ["atividade"];  ?></td>
+<td> <?php echo ereg_replace("[^A-Z, a-z]", " ", $dado ["causa"])  ?></td>
 
-<td> <?php echo $dado ["db"];  ?></td>
+<td> <?php echo ereg_replace("[^A-Z, a-z]", " ", $dado ["sub_causa"]);  ?></td> 
+<td> <?php echo $dado ["obs"];  ?></td>
+<td> <?php echo $dado ["tipo"];  ?></td>
 
-<td> <?php echo $dado ["nome_tec"];  ?></td>
+
 
 
 
 
 <?php
-$codigo = $dado ["cdo"];
-$logradouro = $dado ["logradouro"];
-
-$sql2 = mysql_query ("select  * from foto  where cdo = '$codigo'" );
-$row2 = mysql_num_rows($sql2);
- if  ($row2 > 0)
-{
-
-
-while ($dado2 = mysql_fetch_assoc($sql2)){
-
-$foto1 = $dado2["foto1"];  
-$foto2 = $dado2["foto2"];  
-$cdo = $dado2["cdo"];  
-
-}
-   
-  
-
-  
-}
+$foto1 = $dado ["foto"];
+$protocolo = $dado ["protocolo"];
 ?>
 
 
 
-<td> <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal<?php echo $dado ['id'];  ?>" >Visualizar</button> </td>
+<td> <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal<?php echo $dado ['protocolo'];  ?>" >Visualizar</button> </td>
 
-<td> <a href="gerar_pdf.php?id=<?php echo $dado ["id"]; ?>" target="_blank" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Gerar Pdf</a></td>
+<td> <a href="gerar_pdf.php?protocolo=<?php echo $dado ["protocolo"]; ?>" target="_blank" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Gerar Pdf</a></td>
 
 
 
-<div class="modal fade" id="myModal<?php echo $dado ['id'];  ?>" role="dialog">
+<div class="modal fade" id="myModal<?php echo $dado ['protocolo'];  ?>" role="dialog">
     <div class="modal-dialog-lg">
     
       <!-- Modal content-->
@@ -302,15 +225,21 @@ $cdo = $dado2["cdo"];
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title" style="text-align:center">RELATÓRIO<h4>
+          <p>BA: <strong><?php echo $dado ["ba"];  ?></strong></p>
           <p>CELULA: <strong><?php echo $dado ["celula"];  ?></strong></p>
-          <p>CDO: <strong><?php echo $dado ["cdo"];  ?></strong></p>
-          <p>DATA: <strong><?php echo $dado ["data"];  ?></strong></p>
-          <p>DB: <strong><?php echo $dado ["db"];  ?></strong></p>
-          <p>IDENTIFICAÇÃO: <strong><?php echo $dado ["ident"];  ?></strong></p>
-          <p>REDE EXTERNA: <strong><?php echo $dado ["rede_ext"];  ?></strong></p>
-          <p>REDE INTERNA: <strong><?php echo $dado ["rede_interna"];  ?></strong></p>
-          <p>FUSÃO: <strong><?php echo $dado ["fusao"];  ?></strong></p>
-          <p>OBS: <strong><?php echo $dado ["obs"];  ?></strong></p>
+          <p>CDOE/I: <strong><?php echo $dado ["cdoe_i"];  ?></strong></p>
+          <p>ENDEREÇO: <strong><?php echo $dado ["endereco"];  ?></strong></p>
+          <p>ID TÉC: <strong><?php echo $dado ["tecnico"];  ?></strong></p>
+          <p>EQUIPE: <strong><?php echo $dado ["equipe"];  ?></strong></p>
+          <p>DATA: <strong><?php echo $dado ["data_atv"];  ?></strong></p>
+          <p>CAUSA: <strong><?php echo $dado ["causa"];  ?></strong></p>
+          <p>SUB: <strong><?php echo $dado ["sub_causa"];  ?></strong></p>
+          <p>SERVIÇO: <strong><?php echo $dado ["servico"];  ?></strong></p>
+          <p>CABO: <strong><?php echo $dado ["cabo"];  ?></strong></p>
+          <p>CABO METRAGEM: <strong><?php echo $dado ["cabo_metro"];  ?></strong></p>
+          <p>CAIXA: <strong><?php echo $dado ["caixa"];  ?></strong></p>
+          
+          <p>AÇÃO: <strong><?php echo $dado ["obs"];  ?></strong></p>
 
 
          
@@ -329,7 +258,7 @@ $cdo = $dado2["cdo"];
 
         <?php echo "<img src='fotos/$foto1' class='img-rounded' alt='' width='400' height='400'>" ?>
 
-        <?php echo "<img src='fotos/$foto2' class='img-rounded' alt='' width='400' height='400'>" ?>
+     
 
          
 

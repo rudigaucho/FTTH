@@ -41,12 +41,12 @@
 
 <meta charset="UTF-8"/>
 
- <title>CADASTRO </title>
+ <title>FTTH </title>
 
 <script type="text/javascript">
 function saidasuccessfully()
 {
-  setTimeout("window.location='cad_cdoia.php'",3000);
+  setTimeout("window.location='pesq_per.php'",3000);
   
   
 }
@@ -61,13 +61,9 @@ function saidasuccessfully()
 
 
 <?php
-$celula = $_POST["celulas"];
-$cdoi = $_POST["cdoia"];
 
-
-$Fotos = $_FILES["fotos"];
-$values_gender2 = $_POST["list"];
-$resultado = count($values_gender2);
+$obs = $_POST["obs"];
+$protocolo = $_POST["protocolo"];
 
 
 
@@ -77,6 +73,14 @@ $resultado = count($values_gender2);
 
 
 
+$query ="update principal set obs='$obs' where protocolo = '$protocolo'";
+
+
+
+
+
+
+$sql = mysql_query($query);
 
 
 
@@ -87,89 +91,15 @@ $resultado = count($values_gender2);
 
 
 
- foreach ($values_gender2 as $values){
-
-                     $string[] =  $values;
-
-                  }
-
-$Destino = "fotos/";
-$Conta = 0; 
-
-for($i = 0; $i < $resultado; $i++) 
-{ 
- // Passa valores da iteração atual 
-$Nome = $Fotos["name"][$i]; 
-$Tamanho = $Fotos["size"][$i]; 
-$Tipo = $Fotos["type"][$i]; 
-$Tmpname = $Fotos["tmp_name"][$i]; 
-
-if($Tamanho > 2000000 ) 
-{
-  echo "<br/>Erro ao envia a foto de número " . $Conta . " O arquivo deve ser menor que 2MB.";
-  break;
-}
-
-else
-
-// Verifica se tem arquivo enviado 
-if($Tamanho > 0 && strlen($Nome) > 1) 
-{ 
- // Verifica se é uma imagem 
-if(preg_match("/^image\/(gif|jpeg|jpg|png)$/", $Tipo)) 
-{ 
-// Caminho completo de destino da foto 
-$Caminho = $Destino . $Nome; 
-
- // Tudo OK! Move o upload! 
-if(move_uploaded_file($Tmpname, $Caminho)) 
-{ 
-
-   $query1 = "insert into cdoia (celula,cdoi,cdoia,foto,id_col,data)";
-
-                    $query1.= "values ('$celula','$cdoi','$string[$Conta]','$Nome','".$_SESSION['id']."',NOW())";
-
-                    $sql1 = mysql_query($query1);
 
 
-    $query2 = "update celulas set encerrada_cdoi = 'S' where codigo = '$cdoi'";
-
-    $sql2 = mysql_query($query2);
-
-
-echo "Foto #" . ($i+1) . " enviada.<br/>"; 
-
-// Faz contagem de enviada com sucesso 
-$Conta++; 
-} 
-else // Erro no envio 
-{ 
-// $i+1 porque $i começa em zero 
-echo "Não foi possível enviar a foto #" . ($i+1) . "<br/>"; 
-break;
-} 
-} 
-} 
-} 
-
-if($Conta) // Imagens foram enviadas, ok! 
-{ 
-echo "<br/>Foi(am) enviada(s) " . $Conta . " foto(s)."; 
-} 
-else // Nenhuma imagem enviada, faz alguma ação 
-{ 
-echo "Você não enviou fotos!"; 
-break;
-}
-
-
-if($sql1 && $sql2)
+if($sql )
 {
   
   
-    echo ' <h2>ENVIADA COM SUCESSO!';
+    echo ' <h2>EDITADA COM SUCESSO!';
   
-   echo "<script>saidasuccessfully()</script>";
+	echo "<script>saidasuccessfully()</script>";
   
 
   

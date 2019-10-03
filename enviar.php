@@ -34,7 +34,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
 //if(isset($_FILES['arquivo'],$_FILES['arquivo2'])) {
 	$permite = array('image/jpg', 'image/jpeg' , 'image/png');
     $type =$_FILES['foto1'] ['type'];
-    $type2 =$_FILES['foto2'] ['type'];
+    
      
 
 
@@ -42,7 +42,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
 
 
             $tamanho1 = $_FILES['foto1']['size'];
-            $tamanho2 = $_FILES['foto2']['size'];
+            
          
 
 
@@ -58,14 +58,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
 
             }
 
-             if (empty($type2))
-            {
-
-               $type2 = 'image/png';
-
-
-
-            }
+            
              
 
 
@@ -93,9 +86,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) )
 
 
 
-$extensao2 = strtolower(substr($_FILES['foto2'] ['name'], -4));
-	$novo_nome2  = md5(mt_rand(1, 1000) . microtime()). $extensao2;
-    $diretorio = "fotos/";
+
 
 
 
@@ -108,7 +99,7 @@ $extensao2 = strtolower(substr($_FILES['foto2'] ['name'], -4));
 
 
 
-if (!in_array($type,$permite) || !in_array($type2,$permite ) )
+if (!in_array($type,$permite) )
 {
 
 echo "EXTENSÃO DA IMAGEM INVALIDA, SUA IMAGEM DEVE SER NO FORMATO JPEG,JPG OU PNG!";
@@ -116,7 +107,7 @@ echo "EXTENSÃO DA IMAGEM INVALIDA, SUA IMAGEM DEVE SER NO FORMATO JPEG,JPG OU P
    break;
 }
 
-if ( ($tamanho1 > 2000000) || ($tamanho2 > 2000000)  )
+if ( ($tamanho1 > 2000000)   )
 {
 
 echo "TAMANHO MÁXIMO DA IMAGEM 2MB!";
@@ -126,7 +117,7 @@ echo "TAMANHO MÁXIMO DA IMAGEM 2MB!";
 else
 {
 move_uploaded_file ($_FILES['foto1'] ['tmp_name'], $diretorio.$novo_nome )	;
-move_uploaded_file ($_FILES['foto2'] ['tmp_name'], $diretorio.$novo_nome2 )	;
+
 
 
 
@@ -154,7 +145,7 @@ move_uploaded_file ($_FILES['foto2'] ['tmp_name'], $diretorio.$novo_nome2 )	;
 <script type="text/javascript">
 function saidasuccessfully()
 {
-	setTimeout("window.location='cad_ba.php'",3000);
+	setTimeout("window.location='cadastro.php'",3000);
 	
 	
 }
@@ -167,7 +158,7 @@ function saidasuccessfully()
 
 <meta charset="UTF-8"/>
 
-<title>PREVENTIVA</title>
+<title>FTTH</title>
 
 
 </head>
@@ -187,22 +178,27 @@ function saidasuccessfully()
 
 
 
-
-$codigo =$_POST['cdo'];
-$teste =$_POST['teste'];
 $celula =$_POST['celula'];
-$logradouro =$_POST['logradouro'];
-$fachada =$_POST['fachada'];
-$db =$_POST['db'];
-$gestor =$_POST['gestor'];
-$ident =$_POST['ident'];
-$rede_int =$_POST['rede_int'];
-$rede_ext =$_POST['rede_ext'];
-$gestor =$_POST['gestor'];
-$rede_int =$_POST['rede_int'];
-$fusao =$_POST['fusao'];
-$n_fusao =$_POST['n_fusao'];
+$cdoe_i =$_POST['cdoe_i'];
+$endereco =$_POST['endereco'];
+$id =$_POST['id'];
 $obs =$_POST['obs'];
+$causa =$_POST['causa'];
+$sub =$_POST['sub'];
+$servico =$_POST['servico'];
+$data_atv =$_POST['date'];
+$atv =$_POST['atv'];
+$nome =$_POST['nome'];
+$tipo =$_POST['tipo'];
+$tipo2 =$_POST['tipo2'];
+$local =$_POST['local'];
+$cabo =$_POST['cabo'];
+$cabo_metro =$_POST['cabo_metro'];
+$caixa =$_POST['caixa'];
+$equipe =$_POST['equipe'];
+$ba =$_POST['ba'];
+
+
 
 
 
@@ -249,22 +245,6 @@ echo 'erro, coordenadas invalidas  exemplo correto: -25.476079!';
 }
 */
 
-$sql = mysql_query ("select * from celulas where celula = '$celula' and logradouro = '$logradouro' and fachada = '$fachada'" );
-$row = mysql_num_rows($sql);
- if  ($row == 1)
-{
-
-
-while ($dado = mysql_fetch_assoc($sql)){
-
-$codigo = $dado["codigo"];  
-
-}
-   
-  
-
-  
-}
 
 
 
@@ -275,21 +255,14 @@ $codigo = $dado["codigo"];
 
 
 
-$query = "insert into principal (celula,logradouro,db,ident,rede_ext,rede_inter,fusao,obs,data,editada,cdo,teste,id_tec,nome_tec,equipe,n_fusao)";
+$query = "insert into principal (celula,cdoe_i,endereco,data_atv,causa,sub_causa,servico,data_cad,tecnico,obs,foto,atividade,nome,tipo,cad_por,tipo2,localidade,cabo,cabo_metro,caixa,equipe,ba)";
 
-$query.= "values ('$celula','$logradouro','$db','$ident','$rede_ext','$rede_int','$fusao','$obs',NOW(),'N','$codigo','$teste','".$_SESSION['id']."','".$_SESSION['nome']."','".$_SESSION['equipe']."','$n_fusao')";
+$query.= "values ('$celula','$cdoe_i','$endereco','$data_atv','$causa','$sub','$servico',NOW(),'$id','$obs','$novo_nome','$atv','$nome','$tipo','".$_SESSION['nome']."','$tipo2','$local','$cabo','$cabo_metro','$caixa','$equipe','$ba')";
 
 
-$query2 = "insert into foto (celula,cdo,logradouro,foto1,foto2)";
-
-$query2.= "values ('$celula','$codigo','$logradouro','$novo_nome','$novo_nome2')";
-
-$query3.="update celulas set encerrada='S', total_enc='1' where codigo='$codigo';";
 
 
 $sql = mysql_query($query);
-$sql2 = mysql_query($query2);
-$sql3 = mysql_query($query3);
 
 
 
@@ -300,7 +273,8 @@ $sql3 = mysql_query($query3);
 
 
 
-if($sql && $sql2)
+
+if($sql)
 {
 	
 	
@@ -324,30 +298,6 @@ else
  
  
 
- $i = 0;
- foreach ($values_gender as $values){
-
-    $string[] =  $values;
-
- }
-
-
-
- foreach ($values_gender2 as $values2){
-
-
-
-    $query1 = "insert into cdoia (dc,id_cdoia)";
-
-    $query1.= "values ('$dc','$string[$i]')";
- 
-
-    $i++;
-    
- 
- $sql1 = mysql_query($query1);
-
- }
 
 
 

@@ -62,21 +62,21 @@ if(!isset($_SESSION["senha"]) && !isset($_SESSION["login"]))
 
 else
 {
-  if(($_SESSION["acesso"] == 'TEC' ))
-
-
-  {
-
-	header("Location: cad_ba.php");
-
-  }
-
   if(($_SESSION["acesso"] == 'ADM' ))
 
 
   {
 
 	header("Location: dashboard.php");
+
+  }
+
+  if(($_SESSION["acesso"] == 'TEC' ))
+
+
+  {
+
+	header("Location: cadastro.php");
 
   }
 	

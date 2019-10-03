@@ -4,7 +4,7 @@ error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
 $host = "127.0.0.1";
 $user = "root";
 $pass = "";
-$database ="ftth2";
+$database ="ftth";
 $connection = mysql_connect($host,$user,$pass,$database) or die (mysql_error());
 mysql_select_db($database)or die (mysql_error());
 

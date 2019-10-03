@@ -69,11 +69,10 @@ if($row > 0  )
 	$id = $linha['id'];
   $login = $linha['login'];
   $senha = $linha['senha'];
-  $equipe = $linha['equipe'];
+  
   $acesso = $linha['acesso'];
-  $uf = $linha['uf'];
-  $id_gestor = $linha['id_gestor'];
-  $nome_gestor = $linha['nome_gestor'];
+ 
+ 
     
 	
 	
@@ -83,12 +82,10 @@ if($row > 0  )
 	$_SESSION['senha']=$senha;
 	$_SESSION['id']=$id;
 	$_SESSION['login'] =$login;
-    $_SESSION['equipe'] =$equipe;
+
 	$_SESSION['nome'] =$nome;
 	$_SESSION['acesso'] =$acesso;
-	$_SESSION['uf'] =$uf;
-	$_SESSION['id_gestor'] =$id_gestor;
-	$_SESSION['nome_gestor'] =$nome_gestor;
+
 
 
 

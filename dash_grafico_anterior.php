@@ -1,10 +1,16 @@
-<?php  include "conn.php";   include "grafico.php";  ?>
+<?php  include "conn.php";   
+$mes = $_POST['mes'];
+$ano = $_POST['ano'];
+
+
+
+include "grafico_mes_anterior.php";  ?>
 
 
 <?php 
 
-$mes = date(m);
-$mes = $mes - 1;
+
+
 
 session_start();
 
@@ -17,6 +23,9 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
   
   
 }
+
+
+
 
 
 
@@ -83,7 +92,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
                        2]);
 
       var options = {
-        title: "Atividades ano <?php echo date('Y') ?>",
+        title: "Atividades mes <?php echo $mes ?>",
         width: 1100,
         height: 400,
         bar: {groupWidth: "95%"},
@@ -157,7 +166,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
                        2]);
 
       var options = {
-        title: "Contagem de atividade por equipe mês <?php echo date('M') ?>",
+        title: "Contagem de atividade por equipe mês <?php echo $mes ?>",
         width: 1000,
         height: 400,
         bar: {groupWidth: "95%"},
@@ -231,7 +240,6 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
           ['Fibra quebrada',    <?php echo $FIBRA ?>],
           ['Atenuação',    <?php echo $ATENU ?>]
           
-          
         ]);
 
         var options = {
@@ -266,13 +274,11 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
           ['Ataque de roedores e insetos',    <?php echo $INSETOS_MES_BD ?>],
           ['Fibra quebrada',    <?php echo $FIBRA_BD ?>],
           ['Atenuação',    <?php echo $ATENU_BD ?>]
-         
-          
           
         ]);
 
         var options = {
-          title: 'Causas ofensoras BD mês <?php echo date('M') ?> ',
+          title: 'Causas ofensoras BD mês <?php echo $mes ?> ',
           is3D: true,
         };
 
@@ -302,12 +308,11 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
           ['Ataque de roedores e insetos',    <?php echo $INSETOS_MES_OS ?>],
           ['Fibra quebrada',    <?php echo $FIBRA_OS ?>],
           ['Atenuação',    <?php echo $ATENU_OS ?>]
-         
           
         ]);
 
         var options = {
-          title: 'Causas ofensoras OS mês <?php echo date('M') ?> ',
+          title: 'Causas ofensoras OS mês <?php echo $mes ?> ',
           is3D: true,
         };
 
@@ -332,7 +337,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
         ]);
 
         var options = {
-          title: 'Causas ofensoras OS e BD mês <?php echo date('M') ?> ',
+          title: 'Causas ofensoras OS e BD mês <?php $mes ?> ',
           is3D: true,
         };
 
@@ -386,10 +391,65 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
   <script src="js/bootstrap.min.js"></script>
 
     <!-- ///////PASTA BOOTSTRAP ////////////////////-->
-<meta http-equiv="refresh" content="60; url=dashboard.php">
+
 </head>
 
 <body >
+
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Período</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+
+      <form class="form-inline" role="form"   method="POST" action="dash_grafico_anterior.php">
+  
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Mês</label>
+    <select class="form-control" id="exampleFormControlSelect1"  name="mes" >
+      <option value="01" >Janeiro </option>
+      <option value="02"> Fevereiro </option>
+      <option value="03"> Março</option>
+      <option value="04"> Abril</option>
+      <option value="05" >Maio</option>
+      <option value="06" >Junho</option>
+      <option value="07">Julho</option>
+      <option value="08">Agosto</option>
+      <option value="09">Setembro</option>
+      <option value="10" >Outubro</option>
+      <option value="11">Novembro</option>
+      <option value="12" >Dezembro</option>
+    </select>
+  </div>
+  <div class="form-group">
+  <label for="exampleFormControlSelect1">Ano</label>
+    <select class="form-control" id="exampleFormControlSelect1" name="ano">
+      <option value="2018" >2018</option>
+      <option value="2019" selected >2019</option>
+      <option value="2020">2020</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+</form>
+
+
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
     <div id="wrapper">
 
@@ -437,10 +497,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           
-          <li style="background:black;"><a href="cad_eqp.php"><span class="glyphicon glyphicon-pencil"> CADASTRO</a></li></span> 
-          <li style="background:black;"><a href="pesq_eqp.php"><span class="glyphicon glyphicon-calendar"> BUSCA PERÍODO</a></li>
-          <li style="background:black;"><a href="pesq_cliente.php"><span class="glyphicon glyphicon-search"> BUSCA CLIENTE/ID</a></li>
-          <li style="background:black;"><a href="editar.php"><span class="glyphicon glyphicon-search"> EDITAR</a></li>
+         
                  
                 
         
@@ -453,9 +510,8 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
         
-          <li style="background:black;"><a href="pesq_per.php"><span class="glyphicon glyphicon-calendar"> Busca período</a></li></span>
-          <li style="background:black;"><a href="pesq_col.php"><span class="glyphicon glyphicon-search"> Busca Téc</a></li></span>
-          <li style="background:black;"><a href="dash_grafico_anterior.php"><span class="glyphicon glyphicon-search"> Hist. Gráfico</a></li></span>
+          <li style="background:black;"><a href="dashboard.php"><span class="glyphicon "> Dashboard</a></li></span>
+          
          
         
                  
@@ -490,35 +546,13 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
 
                         </h1>
                        
-                        <ol class="breadcrumb">
-                            <li class="active">
-                                <i > <h4>Movimentações do dia: <marquee onmousedown="this.stop();" onmouseup="this.start();" > <?php $sql46 = mysql_query ("SELECT protocolo,empresa,tipo_reg from PRINCIPAL where day(data) = day(NOW()) AND  YEAR(data) = YEAR(NOW()) and month(data) = month(NOW()) ;" );
- while ($dado = mysql_fetch_assoc($sql46)){
-
-
-  echo 'EQUIPAMENTO: Protocolo: '.$protocolo = $dado["protocolo"];
-  echo ' Empresa: '.  $empresa = $dado["empresa"];
-  echo ' Tipo: '. $tipo = $dado["tipo_reg"].' / ';
-
-} ?><br> <?php $sql47 = mysql_query ("SELECT celula,tipo,servico  from principal where day(data_atv) = day(NOW()) AND  YEAR(data_atv) = YEAR(NOW()) and month(data_atv) = month(NOW()) ;" );
- while ($dado = mysql_fetch_assoc($sql47)){
-
-
-  echo 'CELULA:'. $celula = $dado["celula"];
-  echo ' TIPO: '. $tipo = $dado["tipo"];
-  echo ' SERVIÇO: '. $tipo = $dado["servico"].' -- ';
-
-
-} ?></marquee></h4></i>
-                            </li>
-                        </ol>
-
-                    </div>
-                </div>
-                <!-- /.row -->
+                        
 
            
                 <!-- /.row -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Procurar Mês e Ano
+</button>
 
                 <div id="line_top_x" style="width: 1100px; height: 600px;"></div><br>
                 <div id="top_x_div" style="width: 800px; height: 600px;"></div><br>

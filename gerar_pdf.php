@@ -17,30 +17,34 @@ include 'mpdf/mpdf.php';
  }
 
 
-$id =$_GET['id'];
+$protocolo =$_GET['protocolo'];
 
 
-$sql = mysql_query ("select * from principal where  id = '$id' " );
+$sql = mysql_query ("select * from principal where  protocolo   = '$protocolo' " );
 
 
 
   while ($dado = mysql_fetch_assoc($sql )){
-
-  $celula = $dado ["celula"]; 
-  $logradouro = $dado ["logradouro"]; 
-  $fachada = $dado ["fachada"]; 
-  $db = $dado ["db"]; 
-  $gestor = $dado ["gestor"]; 
-  $ident = $dado ["ident"]; 
-  $rede_ext = $dado ["rede_ext"]; 
-  $rede_inter = $dado ["rede_inter"]; 
-  $fusao = $dado ["fusao"]; 
+  $ba = $dado ["ba"];
+  $celula = $dado ["celula"];   
+  $cdoe_i = $dado ["cdoe_i"]; 
+  $endereco = $dado ["endereco"]; 
+  $tecnico = $dado ["tecnico"]; 
+  $data_atv = $dado ["data_atv"]; 
+  $causa = $dado ["causa"]; 
+  $sub_causa = $dado ["sub_causa"]; 
+  $servico = $dado ["servico"]; 
+  $tipo = $dado ["tipo"]; 
+  $tipo2 = $dado ["tipo2"]; 
+  $nome = $dado ["nome"]; 
   $obs = $dado ["obs"]; 
-  $data = $dado ["data"]; 
-  $cdo = $dado ["cdo"]; 
-  $nome = $dado ["nome_tec"]; 
-  $n_fusao = $dado ["n_fusao"]; 
-  
+  $equipe = $dado ["equipe"]; 
+  $cabo = $dado ["cabo"]; 
+  $localidade = $dado ["localidade"]; 
+  $cabo_metro = $dado ["cabo_metro"];
+  $caixa = $dado ["caixa"];
+  $foto1 = $dado ["foto"]; 
+
 
 
  
@@ -52,17 +56,6 @@ $sql = mysql_query ("select * from principal where  id = '$id' " );
   }
 
 
-  $sql2 = mysql_query ("select * from foto where  celula= '$celula' and cdo = '$cdo' " );
-
-  while ($dado2 = mysql_fetch_assoc($sql2)){
-
-
-
-  $foto1 = $dado2 ["foto1"]; 
-  $foto2 = $dado2 ["foto2"]; 
-
-
-  }
 
 
 $pagina = 
@@ -79,19 +72,26 @@ $pagina =
 
  <img src="img/logo_serede.png" alt="" width="80" height="80"  > 
 <h3 style="text-align: center;">RELATÓRIO TESTE FTTH</h3>
-<h5>DATA: <strong> '.$data.'  </strong> </h5>
-<h5>DATA: <strong> '.$data.'  </strong> </h5>
+<h5>DATA: <strong> '.$data_atv.'  </strong> </h5>
+<h5>CELULA: <strong> '.$ba.'  </strong> </h5>
 <h5>CELULA: <strong> '.$celula.'  </strong> </h5>
-<h5>CDO: '.$cdo.' </h5>
-<h5>ENDEREÇO: '.$logradouro.' </h5>
+<h5>CDOE / I: <strong> '.$cdoe_i.'  </strong> </h5>
+<h5>TIPO:'.$tipo2.' </h5>
+<h5>ENDEREÇO: '.$endereco.' </h5>
+<h5>LOCALIDADE: '.$localidade.' </h5>
+<h5>CABO:'.$cabo.' </h5>
+<h5>CABO METROS:'.$cabo_metro.' </h5>
+<h5>CAIXA:'.$caixa.' </h5>
+<h5>CAUSA:'.$causa.' </h5>
+<h5>SUB:'.$sub_causa.'  </h5>
+<h5>SERVIÇO:'.$servico.' </h5>
+<h5>TIPO:'.$tipo.' </h5>
 
-<h5>DB:'.$db.' </h5>
-<h5>GESTOR:'.$gestor.'  </h5>
-<h5>IDENTIFICAÇÃO:'.$ident.' </h5>
-<h5>REDE EXTERNA:'.$rede_ext.' </h5>
-<h5>REDE INTERNA:'.$rede_inter.' </h5>
-<h5>FUSÃO:'.$fusao.'  </h5>
-<h5>NÚMERO DE FUSÕES:'.$n_fusao.'  </h5>
+<h5>DATA:'.$data_atv.' </h5>
+<h5>EQUIPE:'.$equipe.' </h5>
+
+<h5>NOME:'.$nome.' </h5>
+
 
 
 <h5>OBS: '.$obs.'</h5>
@@ -102,7 +102,7 @@ $pagina =
 <table>
 <tr>  
 <th><img src="fotos/'.$foto1.'"  width="300" height="300"> <figcaption></figcaption>  </th>
-<th><img src="fotos/'.$foto2.'"  width="300" height="300"><figcaption></figcaption>  </th> 
+
 
 
 </tr>

@@ -4,332 +4,535 @@
 <?php
 
 
-//-------------------------------------------  GRAFICO TOTAL ANUAL  ----------------------------------------------------------------
+//-------------------------------------------  GRAFICO TOTAL MêS GA ----------------------------------------------------------------
 
-$sql1 = mysql_query ("SELECT COUNT(*) AS JAN FROM principal where  MONTH(data) = '01' and year(data) = year(NOW())" );
+$sql1 = mysql_query ("SELECT count(*) as day_1 from principal where day(data_atv) = '01' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql1 )){
 
 
-  $JAN = $dado["JAN"];
+  $day_1 = $dado["day_1"];
+
 
  } 
 
- $sql2 = mysql_query ("SELECT COUNT(*) AS FEV FROM principal where  MONTH(data) = '02' and year(data) = year(NOW())" );
+ $sql2 = mysql_query ("SELECT count(*) as day_2 from principal where day(data_atv) = '02' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql2 )){
 
-
-  $FEV = $dado["FEV"];
+    $day_2 = $dado["day_2"];
+  
 
  } 
 
 
- $sql3 = mysql_query ("SELECT COUNT(*) AS MAR FROM principal where  MONTH(data) = '03' and year(data) = year(NOW())" );
+ $sql3 = mysql_query ("SELECT count(*) as day_3 from principal where day(data_atv) = '03' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql3 )){
 
 
-  $MAR = $dado["MAR"];
+    $day_3 = $dado["day_3"];
+   
 
  } 
 
- $sql4 = mysql_query ("SELECT COUNT(*) AS ABR FROM principal where  MONTH(data) = '04' and year(data) = year(NOW())" );
+ $sql4 = mysql_query ("SELECT count(*) as day_4 from principal where day(data_atv) = '04' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql4 )){
 
 
-  $ABR = $dado["ABR"];
+    $day_4 = $dado["day_4"];
+   
 
  } 
 
 
- $sql5 = mysql_query ("SELECT COUNT(*) AS MAI FROM principal where  MONTH(data) = '05' and year(data) = year(NOW())" );
+ $sql5 = mysql_query ("SELECT count(*) as day_5 from principal where day(data_atv) = '05' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql5 )){
 
 
-  $MAI = $dado["MAI"];
+    $day_5 = $dado["day_5"];
+   
 
  } 
 
 
- $sql6 = mysql_query ("SELECT COUNT(*) AS JUN FROM principal where  MONTH(data) = '06' and year(data) = year(NOW())" );
+ $sql6 = mysql_query ("SELECT count(*) as day_6 from principal where day(data_atv) = '06' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql6 )){
 
 
-  $JUNT = $dado["JUN"];
+    $day_6 = $dado["day_6"];
+
 
  } 
 
- $sql7 = mysql_query ("SELECT COUNT(*) AS JUL FROM principal where  MONTH(data) = '07' and year(data) = year(NOW())" );
+ $sql7 = mysql_query ("SELECT count(*) as day_7 from principal where day(data_atv) = '07' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql7 )){
 
 
-  $JUL = $dado["JUL"];
+    $day_7 = $dado["day_7"];
+  
 
  } 
 
 
- $sql8 = mysql_query ("SELECT COUNT(*) AS AGO FROM principal where  MONTH(data) = '08' and year(data) = year(NOW())" );
+ $sql8 = mysql_query ("SELECT count(*) as day_8 from principal where day(data_atv) = '08' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql8 )){
 
 
-  $AGO = $dado["AGO"];
+    $day_8 = $dado["day_8"];
+    
+
 
  } 
 
- $sql9 = mysql_query ("SELECT COUNT(*) AS SETE FROM principal where  MONTH(data) = '09' and year(data) = year(NOW())" );
+ $sql9 = mysql_query ("SELECT count(*) as day_9 from principal where day(data_atv) = '09' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql9 )){
 
 
-  $SET = $dado["SETE"];
+    $day_9 = $dado["day_9"];
+ 
 
  } 
 
 
- $sql10 = mysql_query ("SELECT COUNT(*) AS OUTU FROM principal where  MONTH(data) = '10' and year(data) = year(NOW())" );
+ $sql10 = mysql_query ("SELECT count(*) as day_10 from principal where day(data_atv) = '10' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql10 )){
 
 
-  $OUT = $dado["OUTU"];
+    $day_10 = $dado["day_10"];
+    
 
  } 
 
 
-  $sql11 = mysql_query ("SELECT COUNT(*) AS NOV FROM principal where  MONTH(data) = '11' and year(data) = year(NOW())" );
+  $sql11 = mysql_query ("SELECT count(*) as day_11 from principal where day(data_atv) = '11' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql11 )){
 
 
-  $NOV = $dado["NOV"];
+    $day_11 = $dado["day_11"];
+    
 
  } 
 
-  $sql12 = mysql_query ("SELECT COUNT(*) AS DEZ FROM principal where  MONTH(data) = '12' and year(data) = year(NOW())" );
+  $sql12 = mysql_query ("SELECT count(*) as day_12 from principal where day(data_atv) = '12' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql12 )){
 
 
-  $DEZ = $dado["DEZ"];
-
+    $day_12 = $dado["day_12"];
+  
  } 
 
-//---------------------------------------- GRÁFICO EQUIPES BACKLOG  -------------------------------------------------
 
- $sql13 = mysql_query ("select  count(*) as LOG_1 from principal where equipe = 'LOG 1' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql13 )){
+ $sql12 = mysql_query ("SELECT count(*) as day_12 from principal where day(data_atv) = '12' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql12 )){
 
 
-  $LOG_1 = $dado["LOG_1"];
-
+    $day_12 = $dado["day_12"];
+  
  } 
 
- $sql14 = mysql_query ("select  count(*) as LOG_2 from principal where equipe = 'LOG 2' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql14 )){
 
-
-  $LOG_2 = $dado["LOG_2"];
-
- } 
-
-  $sql15 = mysql_query ("select  count(*) as LOG_3 from principal where equipe = 'LOG 3' and year(data) = year(NOW())" );
+ $sql15 = mysql_query ("SELECT count(*) as day_13 from principal where day(data_atv) = '13' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
  while ($dado = mysql_fetch_assoc($sql15 )){
 
 
-  $LOG_3 = $dado["LOG_3"];
+    $day_13 = $dado["day_13"];
+  
+ }
+
+ $sql16 = mysql_query ("SELECT count(*) as day_14 from principal where day(data_atv) = '14' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql16 )){
+
+
+    $day_14 = $dado["day_14"];
+  
+ }
+
+ $sql17 = mysql_query ("SELECT count(*) as day_15 from principal where day(data_atv) = '15' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql17 )){
+
+
+    $day_15 = $dado["day_15"];
+  
+ }
+
+
+ $sql18 = mysql_query ("SELECT count(*) as day_16 from principal where day(data_atv) = '16' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql18 )){
+
+
+    $day_16 = $dado["day_16"];
+  
+ }
+
+ $sql19 = mysql_query ("SELECT count(*) as day_17 from principal where day(data_atv) = '17' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql19 )){
+
+
+    $day_17 = $dado["day_17"];
+  
+ }
+
+
+ $sql20 = mysql_query ("SELECT count(*) as day_18 from principal where day(data_atv) = '18' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql20 )){
+
+
+    $day_18 = $dado["day_18"];
+  
+ }
+
+
+ $sql21 = mysql_query ("SELECT count(*) as day_19 from principal where day(data_atv) = '19' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql21 )){
+
+
+    $day_19 = $dado["day_19"];
+  
+ }
+
+
+ $sql22 = mysql_query ("SELECT count(*) as day_20 from principal where day(data_atv) = '20' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql22 )){
+
+
+    $day_20 = $dado["day_20"];
+  
+ }
+
+
+ $sql23 = mysql_query ("SELECT count(*) as day_21 from principal where day(data_atv) = '21' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql23 )){
+
+
+    $day_21 = $dado["day_21"];
+  
+ }
+
+
+ $sql24 = mysql_query ("SELECT count(*) as day_22 from principal where day(data_atv) = '22' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql24 )){
+
+
+    $day_22 = $dado["day_22"];
+  
+ }
+
+ $sql25 = mysql_query ("SELECT count(*) as day_23 from principal where day(data_atv) = '23' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql25 )){
+
+
+    $day_23 = $dado["day_23"];
+  
+ }
+
+ $sql26 = mysql_query ("SELECT count(*) as day_24 from principal where day(data_atv) = '24' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql26 )){
+
+
+    $day_24 = $dado["day_24"];
+  
+ }
+
+ $sql27 = mysql_query ("SELECT count(*) as day_25 from principal where day(data_atv) = '25' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql27 )){
+
+
+    $day_25 = $dado["day_25"];
+  
+ }
+
+ $sql28 = mysql_query ("SELECT count(*) as day_26 from principal where day(data_atv) = '26' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql28 )){
+
+
+    $day_26 = $dado["day_26"];
+  
+ }
+
+
+ $sql29 = mysql_query ("SELECT count(*) as day_27 from principal where day(data_atv) = '27' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql29 )){
+
+
+    $day_27 = $dado["day_27"];
+  
+ }
+
+
+ $sql30 = mysql_query ("SELECT count(*) as day_28 from principal where day(data_atv) = '28' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql30 )){
+
+
+    $day_28 = $dado["day_28"];
+  
+ }
+
+
+ $sql31 = mysql_query ("SELECT count(*) as day_29 from principal where day(data_atv) = '29' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql31 )){
+
+
+    $day_29 = $dado["day_29"];
+  
+ }
+
+
+ $sql32 = mysql_query ("SELECT count(*) as day_30 from principal where day(data_atv) = '30' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql32 )){
+
+
+    $day_30 = $dado["day_30"];
+  
+ }
+
+
+ $sql33 = mysql_query ("SELECT count(*) as day_31 from principal where day(data_atv) = '31' and MONTH(data_atv) = MONTH(now()) and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql33 )){
+
+
+    $day_31 = $dado["day_31"];
+  
+ }
+
+
+
+
+
+//---------------------------------------- GRÁFICO EQUIPES BACKLOG  -------------------------------------------------
+
+
+
+ $sql13 = mysql_query ("SELECT COUNT(*) AS TOTAL, (SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and tipo = 'BA') AS BA,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and tipo = 'REPARO') AS REPARO, (SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and tipo = 'PREVENTIVO') AS PREVENTIVO" );
+ while ($dado = mysql_fetch_assoc($sql13 )){
+
+
+  $REPARO = $dado["REPARO"];
+  $BA = $dado["BA"];
+  $PREVENTIVO = $dado["PREVENTIVO"];
+
+ } 
+
+ $sql14 = mysql_query ("SELECT COUNT(*) AS TOTAL, (SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and SERVICO = '1- RECUPERADO') AS RECUPERADO,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and SERVICO = '2- PENDENTE') AS PENDENTE" );
+ while ($dado = mysql_fetch_assoc($sql14 )){
+
+
+  $RECUPERADO = $dado["RECUPERADO"];
+  $PENDENTE = $dado["PENDENTE"];
 
  } 
 
 
 
-$sql16 = mysql_query ("select  count(*) as LOG_4 from principal where equipe = 'LOG 4' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql16 )){
+ //---------------------------------------------------- GRÁFICO ANUAL ATIVIDADES ------------
+
+ $sql34  = mysql_query ("select  count(*) as JAN_TOTAL  from principal where  MONTH(data_atv) = '01' and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql34 )){
 
 
-  $LOG_4 = $dado["LOG_4"];
+  $JAN_TOTAL = $dado["JAN_TOTAL"];
+  
 
- }
+ } 
 
+ $sql35 = mysql_query ("select  count(*) as FEV_TOTAL  from principal where  MONTH(data_atv) = '02' and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql35 )){
 
-$sql17 = mysql_query ("select  count(*) as LOG_5 from principal where equipe = 'LOG 5' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql17 )){
+    $FEV_TOTAL = $dado["FEV_TOTAL"];
+    
 
-
-  $LOG_5 = $dado["LOG_5"];
-
- }
-
- $sql18 = mysql_query ("select  count(*) as LOG_6 from principal where equipe = 'LOG 6' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql18 )){
+ } 
 
 
-  $LOG_6 = $dado["LOG_6"];
-
- }
-
-  $sql19 = mysql_query ("select  count(*) as LOG_7 from principal where equipe = 'LOG 7' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql19 )){
+ $sql36 = mysql_query ("select  count(*) as MAR_TOTAL  from principal where  MONTH(data_atv) = '03' and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql36 )){
 
 
-  $LOG_7 = $dado["LOG_7"];
+    $MAR_TOTAL = $dado["MAR_TOTAL"];
+    
 
- }
-   $sql20 = mysql_query ("select  count(*) as LOG_8 from principal where equipe = 'LOG 8' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql20 )){
+ } 
 
-
-  $LOG_8 = $dado["LOG_8"];
-
- }
-
- $sql21 = mysql_query ("select  count(*) as LOG_9 from principal where equipe = 'LOG 9' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql21 )){
+ $sql37 = mysql_query ("select  count(*) as ABR_TOTAL  from principal where  MONTH(data_atv) = '04' and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql37 )){
 
 
-  $LOG_9 = $dado["LOG_9"];
+    $ABR_TOTAL = $dado["ABR_TOTAL"];
+   
 
- }
-
-
- $sql22 = mysql_query ("select  count(*) as LOG_10 from principal where equipe = 'LOG 10' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql22 )){
+ } 
 
 
-  $LOG_10 = $dado["LOG_10"];
-
- }
-
-  $sql23 = mysql_query ("select  count(*) as LOG_11 from principal where equipe = 'LOG 11' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql23 )){
+ $sql38 = mysql_query ("select  count(*) as MAI_TOTAL  from principal where  MONTH(data_atv) = '05' and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql38 )){
 
 
-  $LOG_11 = $dado["LOG_11"];
+    $MAI_TOTAL = $dado["MAI_TOTAL"];
+   
 
- }
-
-  $sql24 = mysql_query ("select  count(*) as LOG_12 from principal where equipe = 'LOG 12' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql24 )){
+ } 
 
 
-  $LOG_12 = $dado["LOG_12"];
-
- }
-
+ $sql39 = mysql_query ("select  count(*) as JUN_TOTAL  from principal where  MONTH(data_atv) = '06' and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql39 )){
 
 
-// ------------------------------------------ GRÁFICO EQUIPE OS----------------------------------------------------
+    $JUN_TOTAL = $dado["JUN_TOTAL"];
+    
+
+ } 
+
+ $sql40 = mysql_query ("select  count(*) as JUL_TOTAL  from principal where  MONTH(data_atv) = '07' and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql40 )){
 
 
+    $JUL_TOTAL = $dado["JUL_TOTAL"];
+    
+
+ } 
 
 
-$sql25 = mysql_query ("select  count(*) as OS_1 from principal where equipe = 'OS 1' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql25 )){
+ $sql41 = mysql_query ("select  count(*) as AGO_TOTAL  from principal where  MONTH(data_atv) = '08' and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql41 )){
 
 
-  $OS_1 = $dado["OS_1"];
-
- }
-
-
- $sql26 = mysql_query ("select  count(*) as OS_2 from principal where equipe = 'OS 2' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql26 )){
+    $AGO_TOTAL = $dado["AGO_TOTAL"];
+   
 
 
-  $OS_2 = $dado["OS_2"];
+ } 
 
- }
-
-
-
+ $sql42 = mysql_query ("select  count(*) as SETE_TOTAL  from principal where  MONTH(data_atv) = '09' and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql42 )){
 
 
-$sql27 = mysql_query ("select  count(*) as OS_3 from principal where equipe = 'OS 3' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql27)){
+    $SETE_TOTAL = $dado["SETE_TOTAL"];
+  
+ } 
 
 
-  $OS_3 = $dado["OS_3"];
-
- }
-
- $sql28 = mysql_query ("select  count(*) as OS_4 from principal where equipe = 'OS 4' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql28)){
+ $sql43 = mysql_query ("select  count(*) as OUTU_TOTAL  from principal where  MONTH(data_atv) = '10' and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql43 )){
 
 
-  $OS_4 = $dado["OS_4"];
+    $OUTU_TOTAL = $dado["OUTU_TOTAL"];
+    
+
+ } 
+
+
+  $sql44 = mysql_query ("select  count(*) as NOV_TOTAL  from principal where  MONTH(data_atv) = '11' and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql44 )){
+
+
+    $NOV_TOTAL = $dado["NOV_TOTAL"];
+    
+
+ } 
+
+  $sql45 = mysql_query ("select  count(*) as DEZ_TOTAL  from principal where  MONTH(data_atv) = '12' and year(data_atv) = year(NOW())" );
+ while ($dado = mysql_fetch_assoc($sql45 )){
+
+
+    $DEZ_TOTAL = $dado["DEZ_TOTAL"];
+  
 
  }
 
 
+
+ $sql46 = mysql_query ("SELECT COUNT(*) AS TOTAL, (SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and CAUSA = '1-  Fibra Invertida') AS F_INVERTIDA,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and CAUSA = '2- Splitter Danificado') AS SPLITER,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and CAUSA = '3- Carga alta/cabo baixo') AS CABO,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and CAUSA = '5- Chuvas Tempestadas') AS CHUVA,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and CAUSA = '4- Acao de terceiros') AS ACAO,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and CAUSA = '6- Vandalismo') AS VANDALISMO,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and CAUSA = '7- Ataque de Roedores/Insetos') AS INSETOS,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and CAUSA = '8- Falha na construcao') AS FALHA,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and CAUSA = '9- Sala GPON') AS GPON,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and CAUSA = '10 - Sem intervencao') AS SEM_INT,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and CAUSA = 'Fibra quebrada') AS FIBRA,(SELECT COUNT(*)  FROM principal where YEAR(data_ATV) = YEAR(NOW()) and CAUSA = 'Atenuacao') AS ATENU" );
+ while ($dado = mysql_fetch_assoc($sql46)){
+
+
+    $F_INVERTIDA = $dado["F_INVERTIDA"];
+    $SPLITER = $dado["SPLITER"];
+    $CABO = $dado["CABO"];
+    $CHUVA = $dado["CHUVA"];
+    $ACAO = $dado["ACAO"];
+    $VANDALISMO = $dado["VANDALISMO"];
+    $INSETOS = $dado["INSETOS"];
+    $FALHA = $dado["FALHA"];
+    $GPON = $dado["GPON"];
+    $SEM_INT = $dado["SEM_INT"];
+    $FIBRA = $dado["FIBRA"];
+    $ATENU = $dado["ATENU"];
+    
+
+  
+
+ }
+
+
+
+ $sql47 = mysql_query ("SELECT COUNT(*) AS TOTAL, (SELECT COUNT(*)  FROM principal where atividade = 'BD' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '1-  Fibra Invertida') AS F_INVERTIDA_MES_BD,(SELECT COUNT(*)  FROM principal where atividade = 'BD' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '2- Splitter Danificado') AS SPLITER_MES_BD,(SELECT COUNT(*)  FROM principal where atividade = 'BD' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '3- Carga alta/cabo baixo') AS CABO_MES_BD,(SELECT COUNT(*)  FROM principal where atividade = 'BD' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '5- Chuvas Tempestadas') AS CHUVA_MES_BD,(SELECT COUNT(*)  FROM principal where atividade = 'BD' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '4- Acao de terceiros') AS ACAO_MES_BD,(SELECT COUNT(*)  FROM principal where atividade = 'BD' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '6- Vandalismo') AS VANDALISMO_MES_BD,(SELECT COUNT(*)  FROM principal where atividade = 'BD' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '7- Ataque de Roedores/Insetos') AS INSETOS_MES_BD,(SELECT COUNT(*)  FROM principal where atividade = 'BD' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '8- Falha na construcao') AS FALHA_MES_BD,(SELECT COUNT(*)  FROM principal where atividade = 'BD' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '9- Sala GPON') AS GPON_MES_BD,(SELECT COUNT(*)  FROM principal where atividade = 'BD' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '10 - Sem intervencao') AS SEM_INT_MES_BD,(SELECT COUNT(*)  FROM principal where atividade = 'BD' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = 'Fibra quebrada') AS FIBRA_BD,(SELECT COUNT(*)  FROM principal where atividade = 'BD' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = 'Atenuacao') AS ATENU_BD" );
+ while ($dado = mysql_fetch_assoc($sql47)){
+
+
+    $F_INVERTIDA_MES_BD = $dado["F_INVERTIDA_MES_BD"];
+    $SPLITER_MES_BD = $dado["SPLITER_MES_BD"];
+    $CABO_MES_BD = $dado["CABO_MES_BD"];
+    $CHUVA_MES_BD = $dado["CHUVA_MES_BD"];
+    $ACAO_MES_BD = $dado["ACAO_MES_BD"];
+    $VANDALISMO_MES_BD = $dado["VANDALISMO_MES_BD"];
+    $INSETOS_MES_BD = $dado["INSETOS_MES_BD"];
+    $FALHA_MES_BD = $dado["FALHA_MES_BD"];
+    $GPON_MES_BD = $dado["GPON_MES_BD"];
+    $SEM_INT_MES_BD = $dado["SEM_INT_MES_BD"];
+    $FIBRA_BD = $dado["FIBRA_BD"];
+    $ATENU_BD = $dado["ATENU_BD"];
  
 
-
-   $sql30 = mysql_query ("select  count(*) as OS_5 from principal where equipe = 'OS 5' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql30)){
-
-
-  $OS_5 = $dado["OS_5"];
+  
 
  }
 
 
 
+ $sql48 = mysql_query ("SELECT COUNT(*) AS TOTAL, (SELECT COUNT(*)  FROM principal where atividade = 'OS' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '1-  Fibra Invertida') AS F_INVERTIDA_MES_OS,(SELECT COUNT(*)  FROM principal where atividade = 'OS' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '2- Splitter Danificado') AS SPLITER_MES_OS,(SELECT COUNT(*)  FROM principal where atividade = 'OS' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '3- Carga alta/cabo baixo') AS CABO_MES_OS,(SELECT COUNT(*)  FROM principal where atividade = 'OS' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '5- Chuvas Tempestadas') AS CHUVA_MES_OS,(SELECT COUNT(*)  FROM principal where atividade = 'OS' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '4- Acao de terceiros') AS ACAO_MES_OS,(SELECT COUNT(*)  FROM principal where atividade = 'OS' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '6- Vandalismo') AS VANDALISMO_MES_OS,(SELECT COUNT(*)  FROM principal where atividade = 'OS' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '7- Ataque de Roedores/Insetos') AS INSETOS_MES_OS,(SELECT COUNT(*)  FROM principal where atividade = 'OS' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '8- Falha na construcao') AS FALHA_MES_OS,(SELECT COUNT(*)  FROM principal where atividade = 'OS' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '9- Sala GPON') AS GPON_MES_OS,(SELECT COUNT(*)  FROM principal where atividade = 'OS' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = '10- Sem intervencao') AS SEM_INT_MES_OS,(SELECT COUNT(*)  FROM principal where atividade = 'OS' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = 'Fibra quebrada') AS FIBRA_OS,(SELECT COUNT(*)  FROM principal where atividade = 'OS' and MONTH(data_ATV) = MONTH(NOW()) and CAUSA = 'Atenuacao') AS ATENU_OS" );
+ while ($dado = mysql_fetch_assoc($sql48)){
+
+
+    $F_INVERTIDA_MES_OS = $dado["F_INVERTIDA_MES_OS"];
+    $SPLITER_MES_OS = $dado["SPLITER_MES_OS"];
+    $CABO_MES_OS = $dado["CABO_MES_OS"];
+    $CHUVA_MES_OS = $dado["CHUVA_MES_OS"];
+    $ACAO_MES_OS = $dado["ACAO_MES_OS"];
+    $VANDALISMO_MES_OS = $dado["VANDALISMO_MES_OS"];
+    $INSETOS_MES_OS = $dado["INSETOS_MES_OS"];
+    $FALHA_MES_OS = $dado["FALHA_MES_OS"];
+    $GPON_MES_OS = $dado["GPON_MES_OS"];
+    $SEM_INT_MES_OS = $dado["SEM_INT_MES_OS"];
+    $FIBRA_OS = $dado["FIBRA_OS"];
+    $ATENU_OS = $dado["ATENU_OS"];
  
 
-
-
-   $sql31 = mysql_query ("select  count(*) as OS_6 from principal where equipe = 'OS 6' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql31)){
-
-
-  $OS_6 = $dado["OS_6"];
+  
 
  }
 
- $sql32 = mysql_query ("select  count(*) as OS_7 from principal where equipe = 'OS 7' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql32)){
+
+ $sql49 = mysql_query ("SELECT COUNT(*) AS TOTAL, (SELECT COUNT(*)  FROM principal where  MONTH(data_ATV) = MONTH(NOW()) and ATIVIDADE = 'BD') AS MES_BD,(SELECT COUNT(*)  FROM principal where  MONTH(data_ATV) = MONTH(NOW()) and ATIVIDADE = 'OS') AS MES_OS;" );
+ while ($dado = mysql_fetch_assoc($sql49)){
 
 
-  $OS_7 = $dado["OS_7"];
+    $MES_OS = $dado["MES_OS"];
+    $MES_BD  = $dado["MES_BD"];
+
+  
 
  }
 
 
+ $sql50 = mysql_query ("SELECT count(*) as total ,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '1' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp1,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '2' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp2,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '3' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp3,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '4' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp4" );
+ while ($dado = mysql_fetch_assoc($sql50)){
 
 
- 
+    $eqp1 = $dado["eqp1"];
+    $eqp2 = $dado["eqp2"];
+    $eqp3 = $dado["eqp3"];
+    $eqp4 = $dado["eqp4"];
 
-  $sql33 = mysql_query ("select  count(*) as OS_8 from principal where equipe = 'OS 8' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql33)){
+  
 
-
-  $OS_8 = $dado["OS_8"];
-
-}
-
-
-  $sql34 = mysql_query ("select  count(*) as OS_9 from principal where equipe = 'OS 9' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql34)){
-
-
-  $OS_9 = $dado["OS_9"];
-
-}
-
-  $sql35 = mysql_query ("select  count(*) as OS_10 from principal where equipe = 'OS 10' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql35)){
-
-
-  $OS_10 = $dado["OS_10"];
-
-}
-
-$sql37 = mysql_query ("select  count(*) as OS_11 from principal where equipe = 'OS 11' and year(data) = year(NOW())" );
- while ($dado = mysql_fetch_assoc($sql37)){
-
-
-  $OS_11 = $dado["OS_11"];
-
-}
-
-
- 
-
-
-
+ }
 
 
 

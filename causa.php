@@ -2,9 +2,9 @@
  
 include "conn.php";
  
-$celula = $_POST['celula'];
+$causa = $_POST['causa'];
  
-$sql = "SELECT * FROM celulas WHERE celula = '$celula'  group by logradouro";
+$sql = "SELECT * FROM codigos WHERE causa = '$causa'";
 $qr = mysql_query($sql) or die(mysql_error());
  
 if(mysql_num_rows($qr) == 0){
@@ -12,7 +12,7 @@ if(mysql_num_rows($qr) == 0){
     
 }else{
    do{
-      echo '<option value="'.$ln['logradouro'].'">'.$ln['logradouro'].'</option>';
+      echo '<option value="'.$ln['sub'].'">'.$ln['sub'].'</option>';
    }while($ln = mysql_fetch_assoc($qr));
 }
  
