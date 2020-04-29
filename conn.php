@@ -1,7 +1,7 @@
 <?php
 error_reporting (E_ALL & ~ E_NOTICE & ~ E_DEPRECATED);
 
-$host = "127.0.0.1";
+$host = "localhost";
 $user = "root";
 $pass = "";
 $database ="ftth";

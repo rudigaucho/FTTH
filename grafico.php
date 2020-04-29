@@ -521,7 +521,7 @@ $sql1 = mysql_query ("SELECT count(*) as day_1 from principal where day(data_atv
  }
 
 
- $sql50 = mysql_query ("SELECT count(*) as total ,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '1' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp1,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '2' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp2,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '3' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp3,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '4' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp4" );
+ $sql50 = mysql_query ("SELECT count(*) as total ,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '1' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp1,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '2' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp2,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '3' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp3,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '4' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp4,(select COUNT(*)  from PRINCIPAL WHERE EQUIPE = '5' and MONTH(data_atv) = MONTH(NOW()) and year(data_atv) = year(NOW())) as eqp5" );
  while ($dado = mysql_fetch_assoc($sql50)){
 
 
@@ -529,6 +529,7 @@ $sql1 = mysql_query ("SELECT count(*) as day_1 from principal where day(data_atv
     $eqp2 = $dado["eqp2"];
     $eqp3 = $dado["eqp3"];
     $eqp4 = $dado["eqp4"];
+    $eqp5 = $dado["eqp5"];
 
   
 

@@ -253,7 +253,7 @@ if (mysql_num_rows($sql) > 0)
     <tbody>
       <tr class="success">
 
-      <td> <?php echo $dado ["ba"];  ?></td>
+      <td> <a href='editar_ba.php?protocolo=<?php echo $dado ["protocolo"] ?>' style="color:black;"> <?php echo $dado ["ba"];  ?></a></td>
       <td> <?php echo $dado ["celula"];  ?></td>
       <td> <?php echo $dado ["cdoe_i"];  ?></td>
       <td> <?php echo $dado ["tipo2"];  ?></td>

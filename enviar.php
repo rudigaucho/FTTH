@@ -197,6 +197,7 @@ $cabo_metro =$_POST['cabo_metro'];
 $caixa =$_POST['caixa'];
 $equipe =$_POST['equipe'];
 $ba =$_POST['ba'];
+$tipo_ba =$_POST['tipo_ba'];
 
 
 
@@ -255,9 +256,9 @@ echo 'erro, coordenadas invalidas  exemplo correto: -25.476079!';
 
 
 
-$query = "insert into principal (celula,cdoe_i,endereco,data_atv,causa,sub_causa,servico,data_cad,tecnico,obs,foto,atividade,nome,tipo,cad_por,tipo2,localidade,cabo,cabo_metro,caixa,equipe,ba)";
+$query = "insert into principal (celula,cdoe_i,endereco,data_atv,causa,sub_causa,servico,data_cad,tecnico,obs,foto,atividade,nome,tipo,cad_por,tipo2,localidade,cabo,cabo_metro,caixa,equipe,ba,tipo_ba)";
 
-$query.= "values ('$celula','$cdoe_i','$endereco','$data_atv','$causa','$sub','$servico',NOW(),'$id','$obs','$novo_nome','$atv','$nome','$tipo','".$_SESSION['nome']."','$tipo2','$local','$cabo','$cabo_metro','$caixa','$equipe','$ba')";
+$query.= "values ('$celula','$cdoe_i','$endereco','$data_atv','$causa','$sub','$servico',NOW(),'$id','$obs','$novo_nome','$atv','$nome','$tipo','".$_SESSION['nome']."','$tipo2','$local','$cabo','$cabo_metro','$caixa','$equipe','$ba','$tipo_ba')";
 
 
 

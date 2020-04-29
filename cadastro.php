@@ -342,6 +342,15 @@ height:70px;
     </select>
         </div>
 
+        <div class="form-group">  
+    <label for="email" >TIPO BA:</label> <br>
+    <select  name="tipo_ba" required >
+       <option value="BA10"  >BA 10</option>
+       <option value="BA TELAO"  >BA TELÃO</option>
+    
+    </select>
+        </div>
+
 
         
 

@@ -145,6 +145,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
         ["WILIAM GERSON",<?php echo $eqp1 ?>, "blue"],
         ["VALDICLEI DE LIMA",<?php echo $eqp2 ?>, "blue"],
         ["ADRIANO DOS SANTOS", <?php echo $eqp3 ?>, "blue"],
+        ["JEAN RAFAEL", <?php echo $eqp5 ?>, "blue"],
         ["VICTOR HENRIQUE", <?php echo $eqp4 ?>, "blue"]
       ]);
 
@@ -258,7 +259,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
           ['Spliter danificado',    <?php echo $SPLITER_MES_BD ?>],
           ['Carga alta/cabo baixo',    <?php echo $CABO_MES_BD ?>],
           ['Chuva / tempestades',    <?php echo $CHUVA_MES_BD ?>],
-          ['Ação de terceiros',    <?php echo $ACAO_MES_BD ?>],
+          ['Ação serede',    <?php echo $ACAO_MES_BD ?>],
           ['Vandalismo',    <?php echo $VANDALISMO_MES_BD ?>],
           ['Falha na construção',    <?php echo $FALHA_MES_BD ?>],
           ['Sala Gpon',    <?php echo $GPON_MES_BD ?>],

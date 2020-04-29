@@ -154,6 +154,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"]) || ($_SESSION["aces
         ["WILIAM GERSON",<?php echo $eqp1 ?>, "blue"],
         ["VALDICLEI DE LIMA",<?php echo $eqp2 ?>, "blue"],
         ["ADRIANO DOS SANTOS", <?php echo $eqp3 ?>, "blue"],
+        ["JEAN RAFAEL", <?php echo $eqp5 ?>, "blue"],
         ["VICTOR HENRIQUE", <?php echo $eqp4 ?>, "blue"]
       ]);
 
