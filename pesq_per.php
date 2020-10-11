@@ -207,6 +207,7 @@ function loginsuccessfully()
          <th>SUB</th>
          <th>AÇÃO</th>
          <th>TIPO</th>
+         <th>REDE</th>
        
          <th>RELATÓRIO</th>
         <th>PDF</th>
@@ -268,6 +269,7 @@ if (mysql_num_rows($sql) > 0)
 <td> <?php echo ereg_replace("[^A-Z, a-z]", " ", $dado ["sub_causa"]);  ?></td> 
 <td> <a href='editar_acao.php?protocolo=<?php echo $dado ["protocolo"] ?>' style="color:black;"> <?php echo $dado ["obs"];  ?></a></td>
 <td> <?php echo $dado ["tipo"];  ?></td>
+<td> <?php echo $dado ["rede"];  ?></td>
 
 
 

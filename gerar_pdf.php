@@ -44,6 +44,7 @@ $sql = mysql_query ("select * from principal where  protocolo   = '$protocolo' "
   $cabo_metro = $dado ["cabo_metro"];
   $caixa = $dado ["caixa"];
   $foto1 = $dado ["foto"]; 
+  $rede = $dado ["rede"]; 
 
 
 
@@ -86,6 +87,7 @@ $pagina =
 <h5>SUB:'.$sub_causa.'  </h5>
 <h5>SERVIÇO:'.$servico.' </h5>
 <h5>TIPO:'.$tipo.' </h5>
+<h5>REDE:'.$rede.' </h5>
 
 <h5>DATA:'.$data_atv.' </h5>
 <h5>EQUIPE:'.$equipe.' </h5>

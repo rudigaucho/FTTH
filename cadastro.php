@@ -25,7 +25,7 @@ if(!isset($_SESSION["login"]) &&  !isset($_SESSION["senha"])  )
 <!--  FUNCAO COMPLETAR CAMPO TRECHO-->
 
 
-
+<link rel="icon" href="img/logo.png">
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -276,6 +276,15 @@ height:70px;
        <option value="CDOE"  >CDOE</option>
        <option value="CDOI"  >CDOI</option>
        <option value="CDOI.A"  >CDOI.A</option>
+    </select>
+        </div>
+
+        <div class="form-group">  
+    <label for="email" >REDE:</label> <br>
+    <select  name="rede" required >
+       <option value="PRIMARIA"  >PRIMARIA</option>
+       <option value="SECUNDARIA"  >SECUNDARIA</option>
+       
     </select>
         </div>
 
